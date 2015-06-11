@@ -40,7 +40,7 @@
 </head>
 <body>
 <a href="top"/>
-    <?php include("user_header.html"); ?>
+    <?php include("user_header.php"); ?>
  	<!---->
 <div id='cssmenu'>
 <ul>
@@ -149,7 +149,7 @@
         </div>
     </div>
 
-    <?php include("user_footer.html"); ?>
+    <?php include("user_footer.php"); ?>
 </body>
 </html>
 

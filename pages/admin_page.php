@@ -15,7 +15,7 @@
     <script src="../js/jquery.min.js"></script> 
 </head>
 
-<?php include("../pages/admin_header.html"); ?>
+<?php include("../pages/admin_header.php"); ?>
 
 
 <body>
@@ -67,5 +67,5 @@
 
 
 </body>
-<?php include("../pages/admin_footer.html"); ?>
+<?php include("../pages/admin_footer.php"); ?>
 </html>

@@ -1,6 +1,6 @@
 <?php
 include ('conexion.php');
-include ('.././Domain/Sitio.php');
+include_once ('.././Domain/Sitio.php');
 
 class DataSitio{
 	
@@ -37,10 +37,45 @@ class DataSitio{
 		}*/
 	}
 	
+	public function sitio_estereotipo(){
+		$this->load_sitios();
+		if(!array_key_exists('estereotipo',$_SESSION) || empty($_SESSION['estereotipo'])) {//si no hay sesion estereotipo pone tranquilo
+			$_SESSION['estereotipo'] = "tranquilo" ;
+		}
+		
+		$array_estereotipo = array();
+		
+		foreach($_SESSION['sitios'] as $k => $cur)
+		{	
+			if(strcmp($cur->apto_para, $_SESSION['estereotipo']) == 0){
+				array_push($array_estereotipo, $cur);
+			}
+		}
+				
+		function cmp($a, $b)
+		{
+			return strcmp($a->visitas_estereotipo, $b->visitas_estereotipo);
+		}
+		
+		usort($array_estereotipo, "cmp");
+		
+		$_SESSION['sitios_estereotipo'] = $array_estereotipo;
+		
+	}
+	
 	
 }
-/*
-$da = new DataSitio();
-$da->load_sitios();*/
+
+if (isset($_GET['func'])) {
+	if (strcmp($_POST['func'], "estereotipo")){
+		$_SESSION['estereotipo'] = $_POST['estereotipo'];
+
+		}
+  
+}
+
+/*$da = new DataSitio();
+$da->load_sitios();
+$da->sitio_estereotipo();*/
 
 ?>

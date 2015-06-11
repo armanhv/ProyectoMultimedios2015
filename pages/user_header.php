@@ -1,0 +1,36 @@
+<div class="header">
+        <div >
+            <div class="wrap">
+                <div class="logo">
+                    <a ><img src="../images/logo.png" alt="" /></a>
+                </div>
+                <div class="call">
+                    <h3> <span><a href="iniciar_sesion.php">Iniciar Sesión</a></span></h3>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="header_bottom">
+            <div class="wrap">
+                <div class="menu">
+                    <ul>
+                        <li><a href="index.php">Inicio</a></li>
+                        <li><a href="actividades_atractivos.php">Actividades y Atractivos Turísticos</a></li>
+                        <li><a href="preferencias.php">Preferencias</a></li>
+                        <li><a href="acerca_de.php">Acerca De</a></li>
+                        <li><a href="mapa_de_sitio.php">Mapa del Sitio</a></li>
+                    </ul>
+                </div>
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="#"><img src="../images/facebook.png" alt="" /></a></li>
+                        <li><a href="#"><img src="../images/twitter.png" alt="" /></a></li>
+                        <li><a href="#"><img src="../images/google-plus.png" alt="" /></a></li>
+                        <li><a href="#"><img src="../images/vimeo.png" alt="" /></a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>	     
+        </div>	
+        <div class="strip"> </div>
+    </div> 

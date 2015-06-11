@@ -8,7 +8,7 @@
     <script src="../js/jquery.min.js"></script> 
 </head>
 <body>
-    <?php include("user_header.html"); ?>
+    <?php include("user_header.php"); ?>
     
     <div class="main">
         <div class="content">
@@ -78,6 +78,6 @@
         </div>
     </div>
 
-    <?php include("user_footer.html"); ?>
+    <?php include("user_footer.php"); ?>
 </body>
 </html>

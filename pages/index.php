@@ -9,9 +9,8 @@
 </head>
 <body>
 
-<?php include("user_header.html"); ?>
+<?php include("user_header.php"); ?>
      
-     holi
     <div class="slider">
         <div class="wrap">
             <div class="slider_top">         
@@ -54,7 +53,7 @@
         </div> 
     </div>
 
-    <?php include("user_footer.html"); ?>
+    <?php include("user_footer.php"); ?>
 </body>
 </html>
 

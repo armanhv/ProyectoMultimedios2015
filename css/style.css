@@ -533,6 +533,37 @@ body {
 	margin:auto;
 }
 
+.creditos:first-child { 
+	margin-left: 0; 
+} 
+.creditos{
+	width: 29.2%;
+	padding:1.5%; 
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.creditos  img {
+	max-width:100%;
+	display:block;
+	padding: 3px;
+	background: #FFF;
+	border: 1px solid #DDD;
+	border-radius: 20px;-webkit-border-radius: 20px;-moz-border-radius: 20px;-o-border-radius: 20px;
+}
+.creditos  h3{
+	font-size: 1.5em;
+	margin:10px 0;
+	color:#8DC63F;
+	font-family: 'bonvenocflight';
+	text-transform: uppercase;
+}
+.creditos  p  {
+	font-size: 0.85em;
+	color: #888;
+	line-height: 1.8em;
+}
+
 .products_1_of_3 .read_more{
 	float:left;
 	margin:auto;
@@ -1210,6 +1241,9 @@ body {
 	.products_1_of_3 h3{
 		font-size:1.4em;
 	}
+	.creditos h3{
+		font-size:1.4em;
+	}
 	.footer h3{
 		font-size:1.5em;
 		padding-bottom:0;
@@ -1330,6 +1364,12 @@ body {
 	padding:3%;
 	margin:5px 0;
 }
+
+.creditos{
+	width:94%;
+	padding:3%;
+	margin:5px 0;
+}
 	.cont{ 
 		margin: 1% 0 1% 0%;
 	}
@@ -1409,6 +1449,9 @@ body {
 		padding:20px 0;
 	}
 	.products_1_of_3 h3{
+		font-size:1.2em;
+	}
+	.creditos h3{
 		font-size:1.2em;
 	}
 	.left_form,.right_form{
