@@ -1,10 +1,4 @@
-<?php
-	session_start();
-	if(!array_key_exists('admin',$_SESSION) || empty($_SESSION['admin'])) {
-		header( 'Location: .././pages/iniciar_sesion.php' ) ;
-	}
-?>
-
+<?php include("../pages/admin_session.php"); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,7 +10,6 @@
 </head>
 
 <?php include("../pages/admin_header.php"); ?>
-
 
 <body>
 

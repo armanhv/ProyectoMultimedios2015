@@ -1,4 +1,4 @@
-
+<?php include("../pages/user_session.php"); ?>
 
 <!DOCTYPE HTML>
 <head>

@@ -1,4 +1,4 @@
-
+<?php include("../pages/admin_session.php"); ?>
 <!DOCTYPE HTML>
 <head>
     <title>Editar Actividades/Atractivos</title>
