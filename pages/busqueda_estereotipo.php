@@ -88,7 +88,7 @@
                                     <h3><?php echo $cur->nombre; ?></h3>
                                     <img src="<? echo $cur->url_imagen ?>" alt="" />
                                     <p><?php echo $cur->descripcion1; ?></p>
-                                    <div class="read_more"><a href="#">Ver</a></div>
+                                    <div class="read_more"><a href="vista_sitio.php">Ver</a></div>
                         		</div>
                             <?php }?>
 

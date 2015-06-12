@@ -1,5 +1,5 @@
 <?php
-include ('conexion.php');
+include_once ('conexion.php');
 include_once ('.././Domain/Sitio.php');
 
 class DataSitio{
@@ -60,22 +60,51 @@ class DataSitio{
 		usort($array_estereotipo, "cmp");
 		
 		$_SESSION['sitios_estereotipo'] = $array_estereotipo;
-		
 	}
 	
+	public function sitio_recomendados(){
+		$this->load_sitios();
+		
+		$array_recomendado = array();
+		
+		foreach($_SESSION['sitios'] as $k => $cur)
+		{	
+				array_push($array_recomendado, $cur);
+		}
+		
+		function sort_objects_by_total($a, $b) {
+		if($a->visitas == $b->visitas){ return 0 ; }
+			return ($a->visitas < $b->visitas) ? 1 : -1;
+		}
+		
+		usort($array_recomendado, 'sort_objects_by_total');
+		
+		$_SESSION['sitios_recomendado'] = $array_recomendado;
+	}	
 	
+	public function load_sitio($id){
+		$db = new Conexion();
+		$sql = $db->query("call sp_get_sitio('$id');");
+		$datos = $db->recorrer($sql);
+		
+		$sitio = new Sitio($datos['idsitio'],$datos['nombre'],$datos['precio'],$datos['visitas'],$datos['visitas_estereotipo'],$datos['telefono'], $datos['direccion'], $datos['correo'], $datos['descripcion1'], $datos['descripcion2'], $datos['url_video'], $datos['tipo_sitio'], $datos['nombre_estereotipo'], $datos['provincia']);
+		
+		$_SESSION['sitio'] = serialize($sitio);
+	}
 }
 
+/*
 if (isset($_GET['func'])) {
 	if (strcmp($_POST['func'], "estereotipo")){
 		$_SESSION['estereotipo'] = $_POST['estereotipo'];
 
 		}
   
-}
-
-/*$da = new DataSitio();
-$da->load_sitios();
-$da->sitio_estereotipo();*/
+}*/
+/*
+$da = new DataSitio();
+//$da->load_sitios();
+//$da->sitio_estereotipo();
+$da->load_sitio(1);*/
 
 ?>

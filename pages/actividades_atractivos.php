@@ -16,9 +16,11 @@
     <link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,600italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <?php include("user_header.php"); ?>
-    <!---->
-    <a href="#section1">Introduction</A><BR>
+    <?php include("user_header.php"); 
+	include_once(".././Data/DataSitio.php");
+	$da = new DataSitio();
+	$da->sitio_recomendados();
+	?>
 
     <div class="content">	 
         <div class="categories">
@@ -38,25 +40,16 @@
 
                 <div class="spa_products">
                     <h2>Los mas visitados</h2>
-                    <div class="section group">
-                        <div class="products_1_of_3">
-                            <img src="../images/1.jpg" alt="" />
-                            <h3>Ipsum is dummy text </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            <div class="read_more"><a href="#">Ver</a></div>
-                        </div>
-                        <div class="products_1_of_3">
-                            <img src="../images/2.jpg" alt="" />
-                            <h3>Duis aute irure dolor</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            <div class="read_more"><a href="#">Ver</a></div>
-                        </div>
-                        <div class="products_1_of_3">
-                            <img src="../images/3.jpg" alt="" />
-                            <h3>dolor sit amet elit</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            <div class="read_more"><a href="#">Ver</a></div>
-                        </div>
+                    <div class="section group">                        
+                           <?php foreach($_SESSION['sitios_recomendado'] as $k => $cur)
+							{?>
+                            	<div class="products_1_of_3">
+                                    <h3><?php echo $cur->nombre; ?></h3>
+                                    <img src="<? echo $cur->url_imagen ?>" alt="" />
+                                    <p><?php echo $cur->descripcion1; ?></p>
+                                    <div class="read_more"><a href="vista_sitio.php?id=<?php echo $cur->id_stio ?>">Ver</a></div>
+                        		</div>
+                            <?php }?>                        
                     </div>
                 </div>
             </div>
