@@ -59,7 +59,11 @@
        <li class='last'><a href='#map'><span>Mapa y contacto</span></a></li>
     </ul>
     </div>
-    <a name="info"></a></p>
+    <p><a name="info"></a>
+      </p>
+    </p>
+    <p>&nbsp;</p>
+    <p>&nbsp; </p>
     <div class="slider">
         <div class="wrap">
             <div class="slider_top">         
