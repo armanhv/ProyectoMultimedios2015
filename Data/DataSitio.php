@@ -21,6 +21,10 @@ class DataSitio{
 		$result = $db->query("call sp_get_sitios();");
 		$arraySitio = array();
 		
+		if(!array_key_exists('estereotipo',$_SESSION) || empty($_SESSION['estereotipo'])) {//si no hay sesion estereotipo inicializa estereotipo
+			$_SESSION['estereotipo'] = "" ;
+		}
+		
 		while ($fila = mysqli_fetch_array($result)){
 			array_push($arraySitio, $this->result_to_sitio($fila));;
 		}
@@ -39,27 +43,28 @@ class DataSitio{
 	
 	public function sitio_estereotipo(){
 		$this->load_sitios();
-		if(!array_key_exists('estereotipo',$_SESSION) || empty($_SESSION['estereotipo'])) {//si no hay sesion estereotipo pone tranquilo
-			$_SESSION['estereotipo'] = "tranquilo" ;
+		if(!strcmp($_SESSION['estereotipo'],"")) {//si no hay sesion pone todos los sitios
+			$_SESSION['sitios_estereotipo'] = $_SESSION['sitios'];
 		}
-		
-		$array_estereotipo = array();
-		
-		foreach($_SESSION['sitios'] as $k => $cur)
-		{	
-			if(strcmp($cur->apto_para, $_SESSION['estereotipo']) == 0){
-				array_push($array_estereotipo, $cur);
+		else{
+			$array_estereotipo = array();
+			
+			foreach($_SESSION['sitios'] as $k => $cur)
+			{	
+				if(strcmp($cur->apto_para, $_SESSION['estereotipo']) == 0){
+					array_push($array_estereotipo, $cur);
+				}
 			}
+					
+			function cmp($a, $b)
+			{
+				return strcmp($a->visitas_estereotipo, $b->visitas_estereotipo);
+			}
+			
+			usort($array_estereotipo, "cmp");
+			
+			$_SESSION['sitios_estereotipo'] = $array_estereotipo;
 		}
-				
-		function cmp($a, $b)
-		{
-			return strcmp($a->visitas_estereotipo, $b->visitas_estereotipo);
-		}
-		
-		usort($array_estereotipo, "cmp");
-		
-		$_SESSION['sitios_estereotipo'] = $array_estereotipo;
 	}
 	
 	public function sitio_recomendados(){
@@ -90,6 +95,9 @@ class DataSitio{
 		$sitio = new Sitio($datos['idsitio'],$datos['nombre'],$datos['precio'],$datos['visitas'],$datos['visitas_estereotipo'],$datos['telefono'], $datos['direccion'], $datos['correo'], $datos['descripcion1'], $datos['descripcion2'], $datos['url_video'], $datos['tipo_sitio'], $datos['nombre_estereotipo'], $datos['provincia']);
 		
 		$_SESSION['sitio'] = serialize($sitio);
+		$estereotipo = $_SESSION['estereotipo'];
+		$db = new Conexion();
+		$slq = $db->query("call sp_sitio_seleccionado('$id','$estereotipo');");
 	}
 }
 
