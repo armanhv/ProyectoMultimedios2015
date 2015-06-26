@@ -5,7 +5,33 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
-    <script src="../js/jquery.min.js"></script> 
+    <script src="../js/jquery.min.js"></script>
+    <script
+		src="http://maps.googleapis.com/maps/api/js">
+	</script>
+	
+	<script>
+		var myCenter=new google.maps.LatLng(9.827356300000002,-83.86845949999997);
+		
+		function initialize()
+		{
+		var mapProp = {
+		  center:myCenter,
+		  zoom:5,
+		  mapTypeId:google.maps.MapTypeId.ROADMAP
+		  };
+		
+		var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		
+		var marker=new google.maps.Marker({
+		  position:myCenter,
+		  });
+		
+		marker.setMap(map);
+		}
+		
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script> 
 </head>
 <body>
     <?php include("user_header.php"); ?> 
@@ -14,9 +40,8 @@
             <div class="wrap">
                 <div class="contact_info">
                     <h2>Encuentranos en</h2>
-                    <div class="map">
-                        <iframe width="100%" height="180" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">View Larger Map</a></small>
-                    </div>
+                    <div id="googleMap" style="width:75%;height:250px;"></div>
+                    
                 </div>
                 <div class="company_address">
                     <h2>Información de la Empresa:</h2>
@@ -24,10 +49,10 @@
                     <p>Universidad de Costa Rica, Recinto Paraíso</p>
                     <p>Costa Rica</p>
                     <p>Teléfono (+506) 8599 8164</p>
-                    <p>Email: <span>info@mycompany.com</span></p>
+                    <p>Email: <span>dalaian@outlook.com</span></p>
                 </div>
                 <div class="spa_products">
-                    <h2>Administradores</h2>
+                    <h2>Desarrolladores</h2>
                     <div class="section group">
                         <div class="creditos">
                             <img src="../images/Desarrolladores/1.jpg" alt="" />

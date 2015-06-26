@@ -1,4 +1,5 @@
-<?php include("../pages/user_session.php"); ?>
+<?php include("../pages/user_session.php"); 
+include_once(".././Data/DataSitio.php");?>
 
 <!DOCTYPE HTML>
 <head>
@@ -12,13 +13,36 @@
     <link href="../segundoTemplate/css/bootstrap.css" rel='stylesheet' type='text/css' />
 
     <link href="../segundoTemplate/css/style2.css" rel="stylesheet" type="text/css" media="all" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,600italic,700italic' rel='stylesheet' type='text/css'>
+    <script>
+		function recargarSitios(){
+				$.ajax({
+						data:  /*{"func" : "estereotipo"},*/ $("#form").serialize(),
+						url:   '../Data/DataSitio.php',
+						type:  'post',
+						success: function (data) {
+							$('#lista').html(data);
+						  },
+						  error: function(jqXHR, textStatus, error) {
+							alert( "error: " + jqXHR.responseText);
+						  }
+						});/*
+						beforeSend: function () {
+								$("#lista").html("Procesando, espere por favor...");
+						},
+						error: function(){
+								$("#lista").html("Error");
+						},
+						success:  function (response) {
+								$("#lista").html(response);
+						}
+				});*/
+				
+		}
+	</script>
 </head>
 <body>
     <?php include("user_header.php"); 
-	include_once(".././Data/DataSitio.php");
 	$da = new DataSitio();
 	$da->sitio_estereotipo();
 	?>
@@ -38,24 +62,25 @@
 
                     <div class="services">                       
                         <div class="section group">
-                        	<form method="post" action="../Data/DataSitio.php?func=estereotipo">
+                        	<form method="post" action="../Data/DataSitio.php?func=estereotipo" id="form">
+                            <input type="hidden" name="func" value="estereotipo"/>
                             <div class="col_1_of_4 span_1_of_4">                                    
                                 <div class="services_list">
-                                    <input type="checkbox" name="SanJose" value="1"> San José<br>
-                                    <input type="checkbox" name="Cartago" value="2"> Cartago<br>
-                                    <input type="checkbox" name="Heredia" value="3"> Heredia<br>
+                                    <input type="checkbox" name="SanJose" value="San Jose"> San José<br>
+                                    <input type="checkbox" name="Cartago" value="Cartago"> Cartago<br>
+                                    <input type="checkbox" name="Heredia" value="Heredia"> Heredia<br>
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   
                                 <div class="services_list">
-                                    <input type="checkbox" name="Puntarenas" value="6"> Puntarenas<br>
-                                    <input type="checkbox" name="Limon" value="5"> Limón<br>
-                                    <input type="checkbox" name="Guanacaste" value="7"> Guanacaste<br>
+                                    <input type="checkbox" name="Puntarenas" value="Puntarenas"> Puntarenas<br>
+                                    <input type="checkbox" name="Limon" value="Limon"> Limón<br>
+                                    <input type="checkbox" name="Guanacaste" value="Guanacaste"> Guanacaste<br>
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   
                                 <div class="services_list">
-                                    <input type="checkbox" name="Alajuela" value="4"> Alajuela<br> 
+                                    <input type="checkbox" name="Alajuela" value="Alajuela"> Alajuela<br> 
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4"> 
@@ -70,8 +95,10 @@
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   
-                                <div class="services_list">                                   
-                                    <input type="submit" class="read_more"/>
+                                <div class="services_list">
+                                	<input type="button" class="read_more" href="javascript:;" onclick="recargarSitios();return false;" value="Calcula"/>
+                                    
+                                    <input type="submit" class="read_more" onClick="recargarSitios()"/>
                                 </div>
                             </div>
                             </form>
@@ -80,7 +107,7 @@
                 </div>
                 <div class="spa_products">
                     <h2>Busqueda por Estereotipo</h2>
-                    <div class="section group">                        
+                    <div class="section group" id="lista">                        
                             
                            <?php foreach($_SESSION['sitios_estereotipo'] as $k => $cur)
 							{?>
@@ -88,6 +115,7 @@
                                     <h3><?php echo $cur->nombre; ?></h3>
                                     <img src="<? echo $cur->url_imagen ?>" alt="" />
                                     <p><?php echo $cur->descripcion1; ?></p>
+                                    <p>Provincia:  <?php echo $cur->provincia; ?></p>
                                     <div class="read_more"><a href="vista_sitio.php?id=<?php echo $cur->id_stio ?>">Ver</a></div>
                         		</div>
                             <?php }?>
