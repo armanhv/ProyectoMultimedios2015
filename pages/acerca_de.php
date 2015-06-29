@@ -10,7 +10,7 @@
 		src="http://maps.googleapis.com/maps/api/js">
 	</script>
 	
-	<script>
+	<script type="text/javascript">
 		var myCenter=new google.maps.LatLng(9.827356300000002,-83.86845949999997);
 		
 		function initialize()
@@ -28,6 +28,11 @@
 		  });
 		
 		marker.setMap(map);
+		map.setZoom(9);
+  		map.setCenter(marker.getPosition());
+		/*map.
+		streetViewControl:*/
+		//navigator.geolocation.getCurrentPosition();
 		}
 		
 		google.maps.event.addDomListener(window, 'load', initialize);
@@ -40,10 +45,15 @@
             <div class="wrap">
                 <div class="contact_info">
                     <h2>Encuentranos en</h2>
-                    <div id="googleMap" style="width:75%;height:250px;"></div>
+                    <div id="googleMap" style="width:100%;height:250px;"></div>
+                    <form action = "http://maps.google.com/maps" = "get" target = "_blank">
+                        <input type="hidden" id="saddr"/> 
+                        <input type = "hidden" name = "daddr" value = "Universidad de Costa Rica, Paraíso"/> 
+                    	<input type="submit" value="¿Cómo llegar?" />
+                    </form>
                     
                 </div>
-                <div class="company_address">
+                <div class="company_address"></br></br>
                     <h2>Información de la Empresa:</h2>
                     <p>Curso Multimedios</p>
                     <p>Universidad de Costa Rica, Recinto Paraíso</p>
@@ -74,6 +84,18 @@
     </div>
 
     <?php include("user_footer.php"); ?>
+    <script type="text/javascript">
+		var x = document.getElementById("saddr");
+
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+			}
+		
+		function showPosition(position) {
+			x.value= position.coords.latitude + ","+ position.coords.longitude; 
+		}
+	</script> 
 </body>
 </html>
 

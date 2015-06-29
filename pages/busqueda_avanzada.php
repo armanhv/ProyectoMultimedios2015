@@ -7,13 +7,7 @@
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <script src="../js/jquery.min.js"></script> 
 
-    <!-- Para el template 2!-->
-    <link href="../segundoTemplate/css/bootstrap.css" rel='stylesheet' type='text/css' />
-
     <link href="../segundoTemplate/css/style2.css" rel="stylesheet" type="text/css" media="all" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,600italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <?php include("user_header.php"); ?>
@@ -32,37 +26,51 @@
                 <div class="wrap">
                     <div class="services">                       
                         <div class="section group">
+                        <div class="contact-form">
+                        	<span><label>Nombre:</label><input name="palabras" type="text" class="textbox" style="width:70%"></span>
+                            <span></span>
+                        </div>
                             <div class="col_1_of_4 span_1_of_4">                                    
                                 <div class="services_list">
-                                    <input type="checkbox" name="option1" value="Milk"> Familia<br>
-                                    <input type="checkbox" name="option1" value="Milk"> Tour<br>
-                                    <input type="checkbox" name="option1" value="Milk"> Montaña<br>
+                                    <input type="checkbox" name="option1" value="Familiar"> Familiar<br>
+                                    <input type="checkbox" name="option1" value="Tour"> Tour<br>
+                                    <input type="checkbox" name="option1" value="Montania"> Montaña<br>
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   
                                 <div class="services_list">
-                                    <input type="checkbox" name="option1" value="Milk"> Deporte<br>
-                                    <input type="checkbox" name="option1" value="Milk"> Restaurante<br>
-                                    <input type="checkbox" name="option1" value="Milk"> Playa<br>
+                                    <input type="checkbox" name="option1" value="Deporte"> Deporte<br>
+                                    <input type="checkbox" name="option1" value="Restaurante"> Restaurante<br>
+                                    <input type="checkbox" name="option1" value="Playa"> Playa<br>
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   
                                 <div class="services_list">
-                                    <input type="checkbox" name="option1" value="Milk"> Fácil Acceso<br>                                    
-                                    <input type="checkbox" name="option1" value="Milk"> Cultural<br>
+                                    <input type="checkbox" name="option1" value="FacilAcceso"> Fácil Acceso<br>
+                                    <input type="checkbox" name="option1" value="Cultural"> Cultural<br>
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   
                                 <div class="services_list">
                                     <label >Precio:</label>
                                     <select name="select">
-                                        <option>500-999</option>
-                                        <option>1000-1499</option>
+                                        <option value="0">----</option>
+                                        <option value="1">1 - 10 000</option>
+                                        <option value="2">10 000 - 80 000</option>
+                                        <option value="3">80 000 - 150 000</option>
+                                        <option value="4">150 000 - 500 000</option>
+                                        <option value="5">500 000 - 1 000 000</option>
+                                        <option value="6">Más de 1 000 000</option>
                                     </select><br>
                                     <label >Provincia:</label>
                                     <select name="select">
-                                        <option>Cartago</option>
-                                        <option>San José</option>
+                                        <option value="Cartago">Cartago</option>
+                                        <option value="SanJose">San José</option>
+                                        <option value="Alajuela">Alajuela</option>
+                                        <option value="Heredia">Heredia</option>
+                                        <option value="Guanacaste">Guanacaste</option>
+                                        <option value="Limon">Limón</option>
+                                        <option value="Puntarenas">Puntarenas</option>
                                     </select> <br> <br>
                                     <div class="read_more"><a>Buscar</a></div> 
                                 </div>

@@ -1,5 +1,8 @@
 <?php include("../pages/user_session.php"); 
-include_once(".././Data/DataSitio.php");?>
+include_once(".././Data/DataSitio.php");
+	$da = new DataSitio();
+	$da->sitio_estereotipo();
+?>
 
 <!DOCTYPE HTML>
 <head>
@@ -8,12 +11,8 @@ include_once(".././Data/DataSitio.php");?>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <script src="../js/jquery.min.js"></script> 
-
-    <!-- Para el template 2!-->
-    <link href="../segundoTemplate/css/bootstrap.css" rel='stylesheet' type='text/css' />
-
+    
     <link href="../segundoTemplate/css/style2.css" rel="stylesheet" type="text/css" media="all" />
-    <link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,600italic,700italic' rel='stylesheet' type='text/css'>
     <script>
 		function recargarSitios(){
 				$.ajax({
@@ -42,23 +41,24 @@ include_once(".././Data/DataSitio.php");?>
 	</script>
 </head>
 <body>
-    <?php include("user_header.php"); 
-	$da = new DataSitio();
-	$da->sitio_estereotipo();
-	?>
+    <?php include("user_header.php"); ?>
+    
+    <div class="content">	 
+        <div class="categories">
+            <ul>
+                <li class="cate">Tipo de Busqueda</li>
+                <li><a href="actividades_atractivos.php">Lo mas visitados</a></li>
+                <li><a href="busqueda_avanzada.php">Busqueda Avanzada</a></li>
+                <li class="active"><a href="busqueda_estereotipo.php">Busqueda por Estereotipos</a></li>                
+            </ul>				
+        </div>
+    </div>
     
     <div class="main">
         <div class="content">
             <div class="wrap">
                 <div class="content">	 
-                    <div class="categories">
-                        <ul>
-                            <li class="cate">Tipo de Busqueda</li>
-                            <li><a href="actividades_atractivos.php">Lo mas visitados</a></li>
-                            <li><a href="busqueda_avanzada.php">Busqueda Avanzada</a></li>
-                            <li class="active"><a href="busqueda_estereotipo.php">Busqueda por Estereotipos</a></li>                
-                        </ul>            
-                    </div><br>
+                    
 
                     <div class="services">                       
                         <div class="section group">
@@ -96,9 +96,7 @@ include_once(".././Data/DataSitio.php");?>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   
                                 <div class="services_list">
-                                	<input type="button" class="read_more" href="javascript:;" onclick="recargarSitios();return false;" value="Calcula"/>
-                                    
-                                    <input type="submit" class="read_more" onClick="recargarSitios()"/>
+                                	<input type="submit" value="Buscar" href="javascript:;" onclick="recargarSitios();return false;"/>
                                 </div>
                             </div>
                             </form>

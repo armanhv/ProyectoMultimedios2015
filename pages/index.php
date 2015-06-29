@@ -13,7 +13,20 @@
      
     <div class="slider">
         <div class="wrap">
-            <div class="slider_top">         
+            <div class="slider_top">
+            <div class="slider_right">
+                    <div class="image group">                                        
+                        <div class="grid span_2_of_3">
+                            <h3> <span>INFOUCR</span></h3>
+                            <p  align="justify">En este sitio web podrás encontrar las mejores sugerencias para tus vacaciones o días libres, 
+                                para que disfrutes en familia, o bien te vayas de aventura, con un sin número de actividades 
+                                al aire libre según tu gusto, pudiendo disfrutar de un día tranquilo o un día lleno de grandes aventuras.
+                                Ingresa y encuentra las actividades y atractivos turísticos que mejor se adapten a tus gustos y preferencias! </p>
+
+                        </div>
+                    </div>
+
+                </div>         
                 <div class="slider_left">
                     <div class="wmuSlider example2">
                         <div class="wmuSliderWrapper">
@@ -33,19 +46,7 @@
                         </script> 			
                     </div>
                 </div>
-                <div class="slider_right">
-                    <div class="image group">                                        
-                        <div class="grid span_2_of_3">
-                            <h3> <span>INFOUCR</span></h3>
-                            <p  align="justify">En este sitio web podrás encontrar las mejores sugerencias para tus vacaciones o días libres, 
-                                para que disfrutes en familia, o bien te vayas de aventura, con un sin número de actividades 
-                                al aire libre según tu gusto, pudiendo disfrutar de un día tranquilo o un día lleno de grandes aventuras.
-                                Ingresa y encuentra las actividades y atractivos turísticos que mejor se adapten a tus gustos y preferencias! </p>
-
-                        </div>
-                    </div>
-
-                </div>
+                
                 <div class="clear"></div>
                 <br><br><br><br><br><br><br><br>
             </div>

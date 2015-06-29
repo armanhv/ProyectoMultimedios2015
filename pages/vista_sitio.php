@@ -1,4 +1,23 @@
-<?php include("../pages/user_session.php"); ?>
+<?php include("../pages/user_session.php"); 
+
+			include_once(".././Data/DataSitio.php");
+			include_once(".././Data/DataImagen.php");
+			include_once(".././Data/DataCoordenada.php");
+			include_once(".././Data/DataCaracteristica.php");
+			$da = new DataSitio();
+			$da->load_sitio($_GET['id']);
+			$sitio = unserialize($_SESSION['sitio']);
+			
+			$da = new DataImagen();
+			$da->get_images($_GET['id']);
+			
+			$da = new DataCoordenada();
+			$da->get_coordenadas($_GET['id']);
+			$coordenada = unserialize($_SESSION['coordenada']);
+			
+			$da = new DataCaracteristica();
+			$da->get_caracteristicas($_GET['id']);
+	?>
 <!DOCTYPE HTML>
 <head>
     <title>Proyecto de Multimedios</title>
@@ -16,6 +35,40 @@
     <link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,600italic,700italic' rel='stylesheet' type='text/css'>
     
     <script src="../js/jquery.min.js"></script> 
+    <script
+		src="http://maps.googleapis.com/maps/api/js">
+	</script>
+	
+	<script type="text/javascript">
+	
+		var latitude = "<?php echo $coordenada->latitud; ?>";
+		var longitud = "<?php echo $coordenada->longuitud; ?>";
+		var myCenter=new google.maps.LatLng(latitude, longitud);
+		
+		function initialize()
+		{
+		var mapProp = {
+		  center:myCenter,
+		  zoom:5,
+		  mapTypeId:google.maps.MapTypeId.ROADMAP
+		  };
+		
+		var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		
+		var marker=new google.maps.Marker({
+		  position:myCenter,
+		  });
+		
+		marker.setMap(map);
+		map.setZoom(13);
+  		map.setCenter(marker.getPosition());
+		/*map.
+		streetViewControl:*/
+		//navigator.geolocation.getCurrentPosition();
+		}
+		
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script> 
     
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -41,15 +94,7 @@
 </head>
 <body>
 <a href="top"/>
-    <?php include("user_header.php"); 
-			include_once(".././Data/DataSitio.php");
-			include_once(".././Data/DataImagen.php");
-			$da = new DataSitio();
-			$da->load_sitio($_GET['id']);
-			$sitio = unserialize($_SESSION['sitio']);
-			$da = new DataImagen();
-			$da->get_images($_GET['id']);
-	?>
+    <?php include("user_header.php"); ?>
  	<!---->
     <div id='cssmenu'>
     <ul>
@@ -69,8 +114,7 @@
             <div class="slider_top">         
               <div class="slider_left">
                     <div class="image group">                                        
-                        <div class="grid span_2_of_3">
-                            
+                        <div class="grid span_2_of_3">                            
                             <h3> <span> <?php echo $sitio->nombre; ?></span></h3>
                             <p  align="justify">
                                 <?php echo $sitio->descripcion2; ?>
@@ -131,14 +175,21 @@
                         <h2>&nbsp;</h2>
                         <h2>&nbsp;</h2>
                         <h2>Encuentralo en</h2>
-                        <div class="map">
-                          <iframe width="100%" height="180" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">View Larger Map</a></small>
-                        </div>
+                        <div id="googleMap" style="width:100%;height:250px;"></div>
+                        <form action = "http://maps.google.com/maps" = "get" target = "_blank">
+                            <input type="hidden" id="saddr"/> 
+                            <input type = "hidden" name = "daddr" value = "<?php echo $sitio->nombre.', '.$sitio->provincia; ?>"/> 
+                            <input type="submit" value="¿Cómo llegar?" />
+                        </form>
                     </div>
                     <div class="company_address">
+                    	</br></br>
                         <h2>Información de Contacto:</h2>
-                        <p>Cuenta con:</p>
-                        <p>      Facil Acceso, Cultural,  Familiar</p>
+                        <p>Principales carácterísticas:
+                        	<?php 
+								echo implode(", ", $_SESSION['caracteristicas']);
+							?> 
+                        </p>
                         <p>Apto para: <?php echo $sitio->apto_para; ?></p>
                         <p>Precio: <?php echo $sitio->precio; ?></p>
                         <p>Teléfono: <?php echo $sitio->telefono; ?></p>
@@ -151,6 +202,18 @@
     </div>
 
     <?php include("user_footer.php"); ?>
+    <script type="text/javascript">
+		var x = document.getElementById("saddr");
+
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+			}
+		
+		function showPosition(position) {
+			x.value= position.coords.latitude + ","+ position.coords.longitude; 
+		}
+	</script> 
 </body>
 </html>
 

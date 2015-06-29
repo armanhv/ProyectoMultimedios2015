@@ -147,7 +147,7 @@ body {
 	float:left;
 	width: 31%;
 	margin-left:0.5%;
-    position:relative; 
+    position:relative;
 }
 .slider_right img{
 	display:block;
@@ -502,7 +502,7 @@ body {
 	margin-left: 0; 
 } 
 .products_1_of_3{
-	width: 48%;
+	width: 45%;
 	padding: 1.5%;
 	display: block;
 	float: left;
@@ -887,7 +887,7 @@ body {
 }
 .col_1_of_4:first-child { margin-left: 0; } /* all browsers except IE6 and lower */	
 .span_1_of_4 {
-	width: 20.8%;
+	width: 18%;
 	padding:1.5%; 
 }
 .span_1_of_4 h3{
@@ -1079,7 +1079,7 @@ body {
 		resize:none;
 		height:30px;		
 }
-.contact-form input[type="submit"]{
+input[type="submit"]{
    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #8fcf00), color-stop(100%, #6b9c00));
   background: -webkit-linear-gradient(top, #8fcf00, #6b9c00);
   background: -moz-linear-gradient(top, #8fcf00, #6b9c00);
@@ -1103,7 +1103,7 @@ body {
    -webkit-appearance:none;
    float:right;
 }
-.contact-form input[type="submit"]:hover{
+input[type="submit"]:hover{
   background-color: #7db500;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a0e800), color-stop(100%, #6b9c00));
   background: -webkit-linear-gradient(top, #a0e800, #6b9c00);
@@ -1111,7 +1111,7 @@ body {
   background: -o-linear-gradient(top, #a0e800, #6b9c00);
   background: linear-gradient(top, #a0e800, #6b9c00);
 }
-.contact-form input[type="submit"]:active{
+input[type="submit"]:active{
   -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 1px 0px white;
   -moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 1px 0px white;
   box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 1px 0px white;
@@ -1159,6 +1159,11 @@ body {
 @media only screen and (max-width: 800px) {
 	.wrap {
 		width: 95%;
+	}
+	.slider_right,.slider_left{
+		float:none;
+		width:100%;
+		margin:5px 0;
 	}
 	.menu li a{
 		padding:10px 15px;
@@ -1208,6 +1213,7 @@ body {
 	.wrap {
 		width: 95%;
 	}
+	
 	.call p{
 		font-size:1em;
 	}
@@ -1396,11 +1402,7 @@ body {
 	.wrap {
 		width: 95%;
 	}
-	.slider_right,.slider_left{
-		float:none;
-		width:100%;
-		margin:5px 0;
-	}
+	
 	.slider{
 		margin-top:0;
 	}

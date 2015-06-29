@@ -3,6 +3,7 @@
 #cssmenu,
 #cssmenu ul,
 #cssmenu li #cssmenu a {
+	float:none;
   list-style: none;
   margin: 0;
   padding: 0;
