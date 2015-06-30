@@ -10,7 +10,7 @@
 <body>
 
 <?php include("user_header.php"); ?>
-HOli
+HO
     <div class="slider">
         <div class="wrap">
             <div class="slider_top">
