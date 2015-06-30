@@ -35,6 +35,7 @@
                 
 
                 <div class="spa_products">
+                </br>
                     <h2>Los mas visitados</h2>
                     <div class="section group">                        
                            <?php foreach($_SESSION['sitios_recomendado'] as $k => $cur)

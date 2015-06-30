@@ -1,4 +1,5 @@
-<?php include("../pages/user_session.php"); ?>
+<?php include("../pages/user_session.php"); 
+?>
 <!DOCTYPE HTML>
 <head>
     <title>Proyecto de Multimedios</title>
@@ -32,22 +33,22 @@
                         </div>
                             <div class="col_1_of_4 span_1_of_4">                                    
                                 <div class="services_list">
-                                    <input type="checkbox" name="option1" value="Familiar"> Familiar<br>
-                                    <input type="checkbox" name="option1" value="Tour"> Tour<br>
-                                    <input type="checkbox" name="option1" value="Montania"> Montaña<br>
+                                    <input type="checkbox" name="Familiar" value="Familiar"> Familiar<br>
+                                    <input type="checkbox" name="Tour" value="Tour"> Tour<br>
+                                    <input type="checkbox" name="Montania" value="Montania"> Montaña<br>
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   
                                 <div class="services_list">
-                                    <input type="checkbox" name="option1" value="Deporte"> Deporte<br>
-                                    <input type="checkbox" name="option1" value="Restaurante"> Restaurante<br>
-                                    <input type="checkbox" name="option1" value="Playa"> Playa<br>
+                                    <input type="checkbox" name="Deporte" value="Deporte"> Deporte<br>
+                                    <input type="checkbox" name="Restaurante" value="Restaurante"> Restaurante<br>
+                                    <input type="checkbox" name="Playa" value="Playa"> Playa<br>
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   
                                 <div class="services_list">
-                                    <input type="checkbox" name="option1" value="FacilAcceso"> Fácil Acceso<br>
-                                    <input type="checkbox" name="option1" value="Cultural"> Cultural<br>
+                                    <input type="checkbox" name="FacilAcceso" value="Facil Acceso"> Fácil Acceso<br>
+                                    <input type="checkbox" name="Cultural" value="Cultural"> Cultural<br>
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   

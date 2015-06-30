@@ -1,6 +1,7 @@
 <?php
 include_once ('conexion.php');
 include_once ('.././Domain/Sitio.php');
+include_once ('.././Data/DataCaracteristica.php');
 
 class DataSitio{
 	
@@ -159,19 +160,98 @@ if (isset($_POST['func'])) {
 	
 	if (strcmp($_POST['func'], "avanzada") == 0){
 		$da = new DataSitio();
-		$da->sitio_estereotipo();
+		$da->load_sitios();
 				
-		$array_estereotipo = array();
+		$array_avanzada = array();
 		$puntos = array();
+		$dc = new DataCaracteristica();
+		
+		//arreglo el arreglo de la palabra
+		$palabras = preg_split("/[\s,]+/", $_POST['palabras']);//paso las palabras de la búsqueda a array
+		foreach($palabras as $a){//quito palabras innecesarias
+			if(($key = array_search("de", $palabras)) !== false || ($key = array_search("por", $palabras)) !== false || 
+				($key = array_search("para", $palabras)) !== false || ($key = array_search("con", $palabras)) !== false || 
+				($key = array_search("la", $palabras)) !== false || ($key = array_search("el", $palabras)) !== false || 
+				($key = array_search("los", $palabras)) !== false || ($key = array_search("las", $palabras)) !== false || 
+				($key = array_search("se", $palabras)) !== false) {
+				unset($palabras[$key]);
+			}
+		}//fin arreglo
 		
 			foreach($_SESSION['sitios'] as $k => $cur)
-			{					
-				$palabras = preg_split("/[\s,]+/", $_POST['palabras']);
-				foreach($palabras as $palabra){
-					
-				}
+			{							
+				$elemento = array($cur->id, 0);
+				$cantidadPuntos = 0;
 				
-				if ($cur->nombre)
+				foreach($palabras as $palabra){
+					$percent;
+					$palabrasSitio = preg_split("/[\s,]+/", $cur->nombre);
+					foreach($palabrasSitio as $palabraSitio){//verifico por nombre
+						similar_text($palabra, $palabraSitio, $percent); 
+						if($percent = 100){
+							$cantidadPuntos += 1.2;
+						}
+						elseif($percent > 91){
+							$cantidadPuntos += 0.9;
+						}
+						elseif( strlen($palabraSitio) == 3 && $percent >= 60){
+							$cantidadPuntos += 0.3;
+						}
+						elseif( strlen($palabraSitio) == 4 && $percent >= 75){
+							$cantidadPuntos += 0.4;
+						}
+						elseif( strlen($palabraSitio) == 5 && $percent >= 80){
+							$cantidadPuntos += 0.5;
+						}
+					}//fin for verificar por nombre
+					
+					$palabrasDesc = preg_split("/[\s,]+/", $cur->descripcion1);
+					foreach($palabrasDesc as $palabraDesc){//verifico por descripción
+						similar_text($palabra, $palabraDesc, $percent); 
+						if($percent = 100){
+							$cantidadPuntos += 1.2;
+						}
+						elseif($percent > 91){
+							$cantidadPuntos += 0.9;
+						}
+						elseif(count($palabrasDesc) == 3 && $percent >= 60){
+							$cantidadPuntos += 0.3;
+						}
+						elseif(count($palabrasDesc) == 4 && $percent >= 75){
+							$cantidadPuntos += 0.4;
+						}
+						elseif(count($palabrasDesc) == 5 && $percent >= 80){
+							$cantidadPuntos += 0.5;
+						}
+					}//fin verificarpor descripción
+					
+				}//fin for palabras
+				
+				
+				$dc->get_caracteristicas($cur->id);
+				
+				foreach($_SESSION['caracteristicas'] as $caracteristica){
+					if( isset($_POST['Alajuela']) && strcmp($cur->provincia, $_POST['Alajuela']) == 0){
+						array_push($array_estereotipo, $cur);
+					}elseif(isset($_POST['Cartago']) && strcmp($cur->provincia, $_POST['Cartago']) == 0){
+							array_push($array_estereotipo, $cur);
+					}
+					elseif(isset($_POST['SanJose']) && strcmp($cur->provincia, $_POST['SanJose']) == 0){
+							array_push($array_estereotipo, $cur);
+					}
+					elseif(isset($_POST['Heredia']) && strcmp($cur->provincia, $_POST['Heredia']) == 0){
+							array_push($array_estereotipo, $cur);
+					}
+					elseif(isset($_POST['Guanacaste']) && strcmp($cur->provincia, $_POST['Guanacaste']) == 0){
+							array_push($array_estereotipo, $cur);
+					}
+					elseif(isset($_POST['Limon']) && strcmp($cur->provincia, $_POST['Limon']) == 0){
+							array_push($array_estereotipo, $cur);
+					}
+					elseif(isset($_POST['Puntarenas']) && strcmp($cur->provincia, $_POST['Puntarenas']) == 0){
+							array_push($array_estereotipo, $cur);
+					}
+					}
 				
 				if( isset($_POST['Alajuela']) && strcmp($cur->provincia, $_POST['Alajuela']) == 0){
 						array_push($array_estereotipo, $cur);
