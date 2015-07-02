@@ -191,6 +191,8 @@
 							?> 
                         </p>
                         <p>Apto para: <?php echo $sitio->apto_para; ?></p>
+                        <p>Dirección: <?php echo $sitio->direccion; ?></p>
+                        <p>Provincia: <?php echo $sitio->provincia; ?></p>
                         <p>Precio: <?php echo $sitio->precio; ?></p>
                         <p>Teléfono: <?php echo $sitio->telefono; ?></p>
                         <p>Email: <span><?php echo $sitio->correo; ?></span></p>

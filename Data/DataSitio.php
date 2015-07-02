@@ -22,7 +22,7 @@ class DataSitio{
 		$result = $db->query("call sp_get_sitios();");
 		$arraySitio = array();
 		
-		if(!array_key_exists('estereotipo',$_SESSION) || empty($_SESSION['estereotipo'])) {//si no hay sesion estereotipo inicializa estereotipo
+		if(!isset($_SESSION['estereotipo']) || empty($_SESSION['estereotipo'])) {//si no hay sesion estereotipo inicializa estereotipo
 			$_SESSION['estereotipo'] = "" ;
 		}
 		
@@ -33,6 +33,7 @@ class DataSitio{
 		mysqli_close($db);
 		
 		$_SESSION['sitios'] = $arraySitio;
+		
 		
 		/* mostrar registros
 		foreach($arraySitio as $k => $cur)
@@ -100,13 +101,14 @@ class DataSitio{
 		$db = new Conexion();
 		$slq = $db->query("call sp_sitio_seleccionado('$id','$estereotipo');");
 	}
-}
+}//fin dataSitio
 
 ?>
 
 <?php
-
+//session_start();
 if (isset($_POST['func'])) {
+	
 	if (strcmp($_POST['func'], "estereotipo") == 0){
 		$_SESSION['estereotipo'] = $_POST['estereotipo'];
 		$da = new DataSitio();
@@ -157,138 +159,40 @@ if (isset($_POST['func'])) {
                             <?php }
 		}
 	} 
-	
-	if (strcmp($_POST['func'], "avanzada") == 0){
+
+	if (strcmp($_POST['func'], "avscanzada") == 0){
+		session_start();
 		$da = new DataSitio();
-		$da->load_sitios();
-				
-		$array_avanzada = array();
+		$da->load_sitios();	
+		echo count($_SESSION['sitios']);
+		$arrayAvanzada = array();
 		$puntos = array();
-		$dc = new DataCaracteristica();
+		//$dc = new DataCaracteristica;
 		
 		//arreglo el arreglo de la palabra
-		$palabras = preg_split("/[\s,]+/", $_POST['palabras']);//paso las palabras de la búsqueda a array
-		foreach($palabras as $a){//quito palabras innecesarias
-			if(($key = array_search("de", $palabras)) !== false || ($key = array_search("por", $palabras)) !== false || 
-				($key = array_search("para", $palabras)) !== false || ($key = array_search("con", $palabras)) !== false || 
-				($key = array_search("la", $palabras)) !== false || ($key = array_search("el", $palabras)) !== false || 
-				($key = array_search("los", $palabras)) !== false || ($key = array_search("las", $palabras)) !== false || 
-				($key = array_search("se", $palabras)) !== false) {
-				unset($palabras[$key]);
-			}
-		}//fin arreglo
-		
-			foreach($_SESSION['sitios'] as $k => $cur)
-			{							
-				$elemento = array($cur->id, 0);
-				$cantidadPuntos = 0;
-				
-				foreach($palabras as $palabra){
-					$percent;
-					$palabrasSitio = preg_split("/[\s,]+/", $cur->nombre);
-					foreach($palabrasSitio as $palabraSitio){//verifico por nombre
-						similar_text($palabra, $palabraSitio, $percent); 
-						if($percent = 100){
-							$cantidadPuntos += 1.2;
-						}
-						elseif($percent > 91){
-							$cantidadPuntos += 0.9;
-						}
-						elseif( strlen($palabraSitio) == 3 && $percent >= 60){
-							$cantidadPuntos += 0.3;
-						}
-						elseif( strlen($palabraSitio) == 4 && $percent >= 75){
-							$cantidadPuntos += 0.4;
-						}
-						elseif( strlen($palabraSitio) == 5 && $percent >= 80){
-							$cantidadPuntos += 0.5;
-						}
-					}//fin for verificar por nombre
-					
-					$palabrasDesc = preg_split("/[\s,]+/", $cur->descripcion1);
-					foreach($palabrasDesc as $palabraDesc){//verifico por descripción
-						similar_text($palabra, $palabraDesc, $percent); 
-						if($percent = 100){
-							$cantidadPuntos += 1.2;
-						}
-						elseif($percent > 91){
-							$cantidadPuntos += 0.9;
-						}
-						elseif(count($palabrasDesc) == 3 && $percent >= 60){
-							$cantidadPuntos += 0.3;
-						}
-						elseif(count($palabrasDesc) == 4 && $percent >= 75){
-							$cantidadPuntos += 0.4;
-						}
-						elseif(count($palabrasDesc) == 5 && $percent >= 80){
-							$cantidadPuntos += 0.5;
-						}
-					}//fin verificarpor descripción
-					
-				}//fin for palabras
-				
-				
-				$dc->get_caracteristicas($cur->id);
-				
-				foreach($_SESSION['caracteristicas'] as $caracteristica){
-					if( isset($_POST['Alajuela']) && strcmp($cur->provincia, $_POST['Alajuela']) == 0){
-						array_push($array_estereotipo, $cur);
-					}elseif(isset($_POST['Cartago']) && strcmp($cur->provincia, $_POST['Cartago']) == 0){
-							array_push($array_estereotipo, $cur);
-					}
-					elseif(isset($_POST['SanJose']) && strcmp($cur->provincia, $_POST['SanJose']) == 0){
-							array_push($array_estereotipo, $cur);
-					}
-					elseif(isset($_POST['Heredia']) && strcmp($cur->provincia, $_POST['Heredia']) == 0){
-							array_push($array_estereotipo, $cur);
-					}
-					elseif(isset($_POST['Guanacaste']) && strcmp($cur->provincia, $_POST['Guanacaste']) == 0){
-							array_push($array_estereotipo, $cur);
-					}
-					elseif(isset($_POST['Limon']) && strcmp($cur->provincia, $_POST['Limon']) == 0){
-							array_push($array_estereotipo, $cur);
-					}
-					elseif(isset($_POST['Puntarenas']) && strcmp($cur->provincia, $_POST['Puntarenas']) == 0){
-							array_push($array_estereotipo, $cur);
-					}
-					}
-				
-				if( isset($_POST['Alajuela']) && strcmp($cur->provincia, $_POST['Alajuela']) == 0){
-						array_push($array_estereotipo, $cur);
-				}elseif(isset($_POST['Cartago']) && strcmp($cur->provincia, $_POST['Cartago']) == 0){
-						array_push($array_estereotipo, $cur);
-				}
-				elseif(isset($_POST['SanJose']) && strcmp($cur->provincia, $_POST['SanJose']) == 0){
-						array_push($array_estereotipo, $cur);
-				}
-				elseif(isset($_POST['Heredia']) && strcmp($cur->provincia, $_POST['Heredia']) == 0){
-						array_push($array_estereotipo, $cur);
-				}
-				elseif(isset($_POST['Guanacaste']) && strcmp($cur->provincia, $_POST['Guanacaste']) == 0){
-						array_push($array_estereotipo, $cur);
-				}
-				elseif(isset($_POST['Limon']) && strcmp($cur->provincia, $_POST['Limon']) == 0){
-						array_push($array_estereotipo, $cur);
-				}
-				elseif(isset($_POST['Puntarenas']) && strcmp($cur->provincia, $_POST['Puntarenas']) == 0){
-						array_push($array_estereotipo, $cur);
-				}
-			}	
-		 
+		if( !isset($_POST['palabrasForm']) || strcmp($_POST['palabrasForm'],"") != 0){
+			echo count($_SESSION['sitios']);
+			$a = $_POST['palabrasForm'];
+			echo count($_SESSION['sitios']);
+			$palabras = preg_split("/[\s,]+/", $a);
+			echo count($_SESSION['sitios']);
 			
-		if(count($array_estereotipo) == 0){
-			echo "No existen registros con esos criterios";
+			//paso las palabras de la búsqueda a array
+			foreach($palabras as &$valor){//quito palabras innecesarias
+				if(($key = array_search("de", $palabras)) !== false || ($key = array_search("por", $palabras)) !== false || 
+					($key = array_search("para", $palabras)) !== false || ($key = array_search("con", $palabras)) !== false || 
+					($key = array_search("la", $palabras)) !== false || ($key = array_search("el", $palabras)) !== false || 
+					($key = array_search("los", $palabras)) !== false || ($key = array_search("las", $palabras)) !== false || 
+					($key = array_search("se", $palabras)) !== false) {
+					unset($palabras[$key]);
+				}
+			}//fin arreglo*/
+			print_r($palabras);
+			echo count($_SESSION['sitios']);
 		}else{
-			foreach($array_estereotipo as $k => $cur){?>
-				<div class="products_1_of_3">
-                                    <h3><?php echo $cur->nombre; ?></h3>
-                                    <img src="<? echo $cur->url_imagen ?>" alt="" />
-                                    <p><?php echo $cur->descripcion1; ?></p>
-                                    <p>Provincia:  <?php echo $cur->provincia; ?></p>
-                                    <div class="read_more"><a href="vista_sitio.php?id=<?php echo $cur->id_stio ?>">Ver</a></div>
-                        		</div>
-                            <?php }
+			echo "asdcxzcsd";
 		}
+		
 	} 
 }
 ?>

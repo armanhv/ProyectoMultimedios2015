@@ -57,9 +57,7 @@ include_once(".././Data/DataSitio.php");
     <div class="main">
         <div class="content">
             <div class="wrap">
-                <div class="content">	 
-                    
-
+                <div class="content">
                     <div class="services">                       
                         <div class="section group">
                         	<form method="post" action="../Data/DataSitio.php?func=estereotipo" id="form">

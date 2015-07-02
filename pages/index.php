@@ -9,9 +9,7 @@
 </head>
 <body>
 
-<?php include("user_header.php"); ?>
-holi
-     
+<?php include("user_header.php"); ?>     
     <div class="slider">
         <div class="wrap">
             <div class="slider_top">
