@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <script src="../js/jquery.min.js"></script> 
+    <script type="text/javascript" src="../js/provincia/provincias.js"></script>
+    <script type="text/javascript" src="../js/estereotipo/estereotipo.js"></script>
+    <script type="text/javascript" src="../js/caracteristicas/caracteristicas.js"></script>
+    <script type="text/javascript" src="../js/tipoSitio/tipoSitio.js"></script>
 </head>
-<body>
-    
+<body  onload="getProvincias();getEstereotipo();getCaracteristicas();getTiposSitios()">
+
     <?php include("admin_header.php"); ?>
 
     <div class="main">
@@ -20,11 +24,7 @@
                         <div class="contact-form">                            
                             <form method="post" class="left_form">
                                 <div>
-                                    <span><label>Tipo: </label>
-                                        <select>
-                                            <option value="1">Atractivo</option>
-                                            <option value="2">Actividad</option>
-                                        </select>
+                                    <span id="tipoSitios">
                                     </span>
                                 </div>
                                 <div>
@@ -41,15 +41,15 @@
                                 </div>
                                 <div>
                                     <span><label>Dirección:</label></span>
-                                    <span><textarea  ></textarea></span>
+                                    <span><textarea maxlength="250" ></textarea></span>
                                 </div>
                                 <div>
                                     <span><label>Descripción Corta</label></span>
-                                    <span><textarea  ></textarea></span>
+                                    <span><textarea maxlength="250"></textarea></span>
                                 </div>
                                 <div>
                                     <span><label>Descripción Larga</label></span>
-                                    <span><textarea  ></textarea></span>
+                                    <span><textarea  maxlength="1000"></textarea></span>
                                 </div>
 
 
@@ -66,29 +66,17 @@
                                 <span><input  type="text" ></span>
                             </div>
                             <div>
-                                <span><label>Apto para:</label>
-                                    <select>
-                                        <option value="1">Tranquilos</option>
-                                        <option value="2">Extermos</option>
-                                    </select>
-                                </span>
+                                <span id="estereotipos"></span>
                             </div>
                             <div>
-                                <span><label>Características:</label>
-                                    <select>
-                                        <option value="1">Cultural</option>
-                                        <option value="2">Familiar</option>
-                                    </select>
-                                    <button  type="submit"  >Agregar</button>  
+                                <span id="caracteristicas">                                    
                                 </span>
+                               
                             </div>
 
                             <div>                                    
-                                <span><label>Provincia:</label>
-                                    <select>
-                                        <option value="1">Cartago</option>
-                                        <option value="2">Guanacaste</option>
-                                    </select>
+
+                                <span id="provincias">                                  
                                 </span>
                             </div>
 
