@@ -890,7 +890,13 @@ body {
 	width: 18%;
 	padding:1.5%; 
 }
-.span_1_of_4 h3{
+
+.span_preferencias {
+	width: 27%;
+	padding:1.5%; 
+}
+
+.span_1_of_4 h3, .span_preferencias h3{
 	font-size: 1.6em;
 	text-transform: uppercase;
 	color: #316600;
@@ -899,16 +905,17 @@ body {
 	font-family: 'bonvenocflight';
 	line-height:25px;
 }
-.span_1_of_4 h3 span{
+.span_1_of_4 h3 span, .span_preferencias h3 span{
 	color:#999;
 	font-size:20px;
 }
-.span_1_of_4 p{
+.span_1_of_4 p, .span_preferencias p{
 	font-size: 0.85em;
 	color: #888;
 	line-height: 1.8em;
 	padding:5px 0;
 }
+
 .services_list li a{
 	 font-size: 0.8em;
 	 color:#888;
@@ -1157,6 +1164,9 @@ input[type="submit"]:active{
 	}
 }
 @media only screen and (max-width: 800px) {
+	.span_preferencias{
+		width: 45%;
+	}
 	.wrap {
 		width: 95%;
 	}
@@ -1281,7 +1291,7 @@ input[type="submit"]:active{
 	.col_1_of_4,.col_1_of_2,.col_1_of_3{
 		margin:5px 0;
 	}
-	.span_1_of_4,.span_1_of_2{
+	.span_1_of_4,.span_1_of_2, span_preferencias{
 		width:94%;
 		padding:0 3%;
 	}
@@ -1299,6 +1309,9 @@ input[type="submit"]:active{
 	
 }
 @media only screen and (max-width: 480px) {
+	.span_preferencias{
+		width: 90%;
+	}
 	.wrap {
 		width: 90%;
 	}

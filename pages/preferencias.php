@@ -28,7 +28,7 @@
                     <h2>Seleccione sus preferencias entre las siguientes opciones, para crear un mejor estereotipo sobre usted: </h2>
                     <br><br>
                     <div class="section group">
-                        <div class="col_1_of_4 span_1_of_4">
+                        <div class="col_1_of_4 span_preferencias">
                             <h3><span>Comida</span></h3>
                             <div class="services_list">
                                 <input type="radio" name="comida" value="carnivoro" onClick="comida_radio(this)"
@@ -37,7 +37,7 @@
                                 <?php if(isset($_SESSION['comida']) && strcmp($_SESSION['comida'],'vegetariano')==0) echo 'checked="checked"';?>/>Vegetariano 
                             </div>
                         </div>
-                        <div class="col_1_of_4 span_1_of_4">
+                        <div class="col_1_of_4 span_preferencias">
                             <h3><span>Música</span></h3>
                             <div class="services_list">
                             	<input type="radio" name="musica" value="fuerte" onClick="comida_radio(this)"
@@ -46,7 +46,7 @@
                                 <?php if(isset($_SESSION['musica']) && strcmp($_SESSION['musica'],'suave')==0) echo 'checked="checked"';?>/>Suave
                             </div>
                         </div>
-                        <div class="col_1_of_4 span_1_of_4">
+                        <div class="col_1_of_4 span_preferencias">
                             <h3><span>Paisaje</span></h3> 
                             <div class="services_list">
                            		<input type="radio" name="paisaje" value="playa" onClick="comida_radio(this)"
@@ -56,9 +56,8 @@
                             </div>
                         </div>
 
-                    </div>
-                    <div class="section group">
-                        <div class="col_1_of_4 span_1_of_4">
+                   
+                        <div class="col_1_of_4 span_preferencias">
                             <h3><span>Hospedaje</span></h3> 
                             <div class="services_list">
                             	<input type="radio" name="hospedaje" value="bajoTecho" onClick="comida_radio(this)"
@@ -67,7 +66,7 @@
                                 <?php if(isset($_SESSION['hospedaje']) && strcmp($_SESSION['hospedaje'],'aireLibre')==0) echo 'checked="checked"';?>/>Aire Libre
                             </div>
                         </div> 
-                        <div class="col_1_of_4 span_1_of_4">
+                        <div class="col_1_of_4 span_preferencias">
                             <h3><span>Tiempo de Duración</span></h3> 
                             <div class="services_list">
                             	<input type="radio" name="tiempo" value="corto" onClick="comida_radio(this)"
@@ -77,7 +76,7 @@
                             </div>
                         </div>
 
-                        <div class="col_1_of_4 span_1_of_4">
+                        <div class="col_1_of_4 span_preferencias">
                             <h3><span>Tipo de Atractivo o Actividad</span></h3> 
                             <div class="services_list">
                             	<input type="radio" name="tipoActividad" value="tranquilas" onClick="comida_radio(this)"

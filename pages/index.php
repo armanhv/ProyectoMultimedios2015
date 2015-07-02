@@ -9,11 +9,8 @@
 </head>
 <body>
 
-<<<<<<< HEAD
 <?php include("user_header.php"); ?>     
-=======
-<?php include("user_header.php"); ?>
->>>>>>> 0ae9f187329efda9d5bfd11dfe6996fa7d84896b
+
     <div class="slider">
         <div class="wrap">
             <div class="slider_top">
