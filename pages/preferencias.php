@@ -91,7 +91,9 @@
                 <div class="contact-form">
                                          
                         <div>
-                            <span><input type="submit" value="Guardar Preferencias" class="myButton"></span>
+                        	
+                            <span><input type="submit" value="Guardar Preferencias" class="myButton"></span></br></br></br></br>
+                            <p align="right" style="color:#3CC153">*Los cambios no se guardarán hasta que no presione "Guardar Prerencias"</p>
                         </div>
                     </form>
                 </div>

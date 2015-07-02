@@ -6,7 +6,7 @@ include_once(".././Data/DataSitio.php");
 
 <!DOCTYPE HTML>
 <head>
-    <title>Proyecto de Multimedios</title>
+    <title>Búsqueda Estereotipo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
@@ -64,32 +64,34 @@ include_once(".././Data/DataSitio.php");
                             <input type="hidden" name="func" value="estereotipo"/>
                             <div class="col_1_of_4 span_1_of_4">                                    
                                 <div class="services_list">
-                                    <input type="checkbox" name="SanJose" value="San Jose"> San José<br>
+                                    <p><input type="checkbox" name="SanJose" value="San Jose"> San José<br>
                                     <input type="checkbox" name="Cartago" value="Cartago"> Cartago<br>
-                                    <input type="checkbox" name="Heredia" value="Heredia"> Heredia<br>
+                                    <input type="checkbox" name="Heredia" value="Heredia"> Heredia<br></p>
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   
                                 <div class="services_list">
-                                    <input type="checkbox" name="Puntarenas" value="Puntarenas"> Puntarenas<br>
+                                    <p><input type="checkbox" name="Puntarenas" value="Puntarenas"> Puntarenas<br>
                                     <input type="checkbox" name="Limon" value="Limon"> Limón<br>
-                                    <input type="checkbox" name="Guanacaste" value="Guanacaste"> Guanacaste<br>
+                                    <input type="checkbox" name="Guanacaste" value="Guanacaste"> Guanacaste<br></p>
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   
                                 <div class="services_list">
-                                    <input type="checkbox" name="Alajuela" value="Alajuela"> Alajuela<br> 
+                                    <p><input type="checkbox" name="Alajuela" value="Alajuela"> Alajuela<br> </p>
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4"> 
                                 <div class="services_list">
-                                Estereotipo:<br/>
+                                <p>
+                                <h3>Estereotipo:</h3><br/>
+                                <p>
                                     <input type="radio" name="estereotipo" value="tranquilo" 
                                     	<?php if ( (strcmp($_SESSION['estereotipo'], 'tranquilo')) == 0 )
 										{ echo 'checked="checked"';} ?>/>Tranquilo<br>
                                     <input type="radio" name="estereotipo" value="extremo" 
                                     <?php if ( (strcmp($_SESSION['estereotipo'], 'extremo')) == 0 )
-										{ echo 'checked="checked"';} ?>/>Extremo<br>
+										{ echo 'checked="checked"';} ?>/>Extremo<br></p>
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   

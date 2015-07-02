@@ -9,8 +9,10 @@ session_start();
 if( !isset($_SESSION['admin'] ))
 {
 	header ('Location: ../pages/iniciar_sesion.php');
+	$_SESSION['failure_message'] = "*Nombre de usuario o contraseña son incorrectos";
 }
-
-header ('Location: ../pages/admin_page.php');
+else{
+	header ('Location: ../pages/admin_page.php');
+}
 
 ?>

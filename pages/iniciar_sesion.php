@@ -1,3 +1,4 @@
+<?php include("../pages/user_session.php"); ?>
 <!DOCTYPE HTML>
 <head>
     <title>Iniciar Sesión</title>
@@ -22,6 +23,11 @@
                         <div>
                             <span><label>Contraseña</label></span>
                             <span><input name="userPassword" type="password" class="textbox"></span>
+                        </div>
+                        <div>
+                        	<span><label style="color:#F00" id="error">
+							<?php print ( isset($_SESSION['failure_message']) ? $_SESSION['failure_message'] : '' ); ?></label></span>
+                            <?php unset($_SESSION['failure_message']);?>
                         </div>
                          <div >
                         <span ><input type="submit" value="Iniciar Sesión" class="myButton" onClick="location.href = 'principal_administrador.html'" ></span>

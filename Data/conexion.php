@@ -11,7 +11,12 @@ class Conexion extends mysqli{
 	}
 	
 	public function recorrer($y){
-		return mysqli_fetch_array($y);
+		try{
+			return mysqli_fetch_array($y);
+		}
+		catch(Exception $e){
+			throw new Exception($e);
+		}
 	}
 }
 

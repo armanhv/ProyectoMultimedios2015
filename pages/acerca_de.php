@@ -56,6 +56,7 @@
                 <div class="company_address"></br></br>
                     <h2>Información de la Empresa:</h2>
                     <p>Curso Multimedios</p>
+                    <p>Profesor: Ph.D. Arnoldo Rodríguez C.</p>
                     <p>Universidad de Costa Rica, Recinto Paraíso</p>
                     <p>Costa Rica</p>
                     <p>Teléfono (+506) 8599 8164</p>

@@ -2,7 +2,7 @@
 ?>
 <!DOCTYPE HTML>
 <head>
-    <title>Proyecto de Multimedios</title>
+    <title>Búsqueda Avanzada</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
@@ -47,32 +47,36 @@
                             <form method="post" action="../Data/DataSitio.php?func=avanzada" id="form">
                             <input type="hidden" name="func" value="avanzada"/>
                             <div class="contact-form">
-                                <span><label>Nombre:</label><input name="palabrasForm" type="text" class="textbox" style="width:70%"></span>
+                                <span><label>Buscar:</label><input name="palabrasForm" type="text" class="textbox" style="width:70%"></span>
                                 <span></span>
                             </div>
                                
                                  <div class="col_1_of_4 span_1_of_4">                                    
                                     <div class="services_list">
+                                    	<p>
                                         <input type="checkbox" name="Familiar" value="Familiar"> Familiar<br>
                                         <input type="checkbox" name="Tour" value="Tour"> Tour<br>
-                                        <input type="checkbox" name="Montania" value="Montania"> Montaña<br>
+                                        <input type="checkbox" name="Montania" value="Montania"> Montaña<br></p>
                                     </div>
                                 </div>
                                 <div class="col_1_of_4 span_1_of_4">                                   
                                     <div class="services_list">
+                                    	<p>
                                         <input type="checkbox" name="Deporte" value="Deporte"> Deporte<br>
                                         <input type="checkbox" name="Restaurante" value="Restaurante"> Restaurante<br>
-                                        <input type="checkbox" name="Playa" value="Playa"> Playa<br>
+                                        <input type="checkbox" name="Playa" value="Playa"> Playa<br></p>
                                     </div>
                                 </div>
                                 <div class="col_1_of_4 span_1_of_4">                                   
                                     <div class="services_list">
+                                    	<p>
                                         <input type="checkbox" name="FacilAcceso" value="Facil Acceso"> Fácil Acceso<br>
-                                        <input type="checkbox" name="Cultural" value="Cultural"> Cultural<br>
+                                        <input type="checkbox" name="Cultural" value="Cultural"> Cultural<br></p>
                                     </div>
                                 </div>
                                 <div class="col_1_of_4 span_1_of_4">                                   
                                     <div class="services_list">
+                                    	<p>
                                         <label >Precio:</label>
                                         <select name="precio">
                                             <option value="0">----</option>
@@ -93,7 +97,7 @@
                                             <option value="Guanacaste">Guanacaste</option>
                                             <option value="Limon">Limón</option>
                                             <option value="Puntarenas">Puntarenas</option>
-                                        </select> <br> <br> 
+                                        </select> <br> <br> </p>
                                     </div>
                                 </div>
                                 <input type="submit" value="Buscar" href="javascript:;" onclick="recargarSitios();return false;"/>

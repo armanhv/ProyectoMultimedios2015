@@ -15,8 +15,8 @@
                 <div class="menu">
                     <ul>
                         <li><a href="index.php">Inicio</a></li>
-                        <li><a href="actividades_atractivos.php">Actividades y Atractivos Turísticos</a></li>
                         <li><a href="preferencias.php">Preferencias</a></li>
+                        <li><a href="actividades_atractivos.php">Actividades y Atractivos Turísticos</a></li>
                         <li><a href="acerca_de.php">Acerca De</a></li>
                         <li><a href="mapa_de_sitio.php">Mapa del Sitio</a></li>
                     </ul>
