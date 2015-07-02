@@ -11,10 +11,22 @@
     <?php include("user_header.php"); ?>
     <div class="slider">
         <div class="wrap">
-            <div class="slider_top">   
-                <img src="../images/tipoVisualizacion/mapa.jpg" alt=""  width="100%" height="700px"/>
+            <div class="slider_top"></div>
+            	 <div class="footer_grid1">
+                    <h3>Mapa del Sitio</h3>
+                    <ul>
+                        <li><a href="index.php">Inicio</a></li>
+                        <li><a href="preferencias.php">Preferencias</a></li>
+                        <li><a href="acerca_de.php">Acerca de</a></li>
+                        <li><a href="mapa_de_sitio.php">Mapa del Sitio</a></li>
+                        <p>Búsquedas</p>
+                        <li><a href="actividades_atractivos.php">Los más visitados</a></li>
+                        <li><a href="busqueda_avanzada.php">Búsqueda Avanzada</a></li>
+                        <li><a href="busqueda_estereotipo.php">Búsqueda por estereotipo</a></li>
+                        
+                    </ul>	
 
-            </div>
+                </div>
             
             <div class="clear"></div>
             <br><br><br><br><br><br><br><br>

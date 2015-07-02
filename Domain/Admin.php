@@ -3,12 +3,12 @@
 class Admin{
 	
 	private $id;
-	private $nombre;
-	private $apellidos;
-	private $nombre_usuario;
+	public $nombre;
+	public $apellidos;
+	public $nombre_usuario;
 	private $password;
-	private $correo;
-	private $admin_general;
+	public $correo;
+	public $admin_general;
 	
 	public function Admin($id, $nombre_usuario, $password, $correo, $nombre, $apellidos, $admin_general){
 		$this->id = $id;
