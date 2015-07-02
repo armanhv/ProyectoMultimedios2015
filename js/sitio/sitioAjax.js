@@ -2,29 +2,31 @@
 
 function insertarSitioAtractivo() {
 
-    if (verificarCliente() && validarEmail()) {
-        var parametros = {
-            "nombreCliente": depurarTexto($('#txtNombreCliente').val()),
-            "primerApellido": depurarTexto($('#txtPrimerApellido').val()),
-            "segundoApellido": depurarTexto($('#txtSegundoApellido').val()),
-            "correoCliente": depurarTexto($('#txtEmailEmpleado').val())
 
-        };
+    var parametros = {
+        "nombre": $('#txtNombreSitio').val(),
+        "precio": $('#txtPrecio').val(),
+        "telefono": $('#txtTelefono').val(),
+        "direccion": $('#txtDireccion').val(),
+        "email": $('#txtEmail').val(),
+        "descripcionCorta": $('#txtDescripcionCorta').val(),
+        "descripcionLarga": $('#txtDescripcionLarga').val(),
+        "urlVideo": $('#txtUrlVideo').val(),
+        "tipoSitio": $('#cbxTipoSitio').val(),
+        "estereotipo": $('#cbxEstereotipo').val(),
+        "provincia": $('#cbxProvincias').val()
 
-        if (confirm("¿ Desea ingresar este cliente ?")) {
-            $.ajax({
-                data: parametros,
-                url: '../../actions/cliente/insertarCliente.php',
-                type: 'post',
-                success: function (response) {
-                    //se recarga el combo y limpan los espacios
-                    $('input[type=text]').val("");
-                    $('#txtEmailEmpleado').val("");
-                    obtenerClientes();
-                    $("#resultado").html(response);
-                }
-            });
-        }
+    };
+
+    if (confirm("¿ Desea ingresar este sitio ?")) {
+        $.ajax({
+            data: parametros,
+            url: '../../actions/sitio/agregarSitioAction.php',
+            type: 'post',
+            success: function (response) {               
+                $("#resultado").html(response);
+            }
+        });
     }
 }
 

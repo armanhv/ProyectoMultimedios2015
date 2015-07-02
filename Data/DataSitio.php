@@ -15,6 +15,7 @@ class DataSitio {
                 . $objSitio->visitas_estereotipo . ",'" . $objSitio->telefono . "','" . $objSitio->direccion . "','"
                 . $objSitio->correo . "','" . $objSitio->descripcion1 . "','" . $objSitio->descripcion2 .
                 "','" . $objSitio->url_video . "'," . $objSitio->tipo_sitio . "," . $objSitio->apto_para . ",'" . $objSitio->provincia . "');";
+        
         $result = mysqli_query($db, $query);
 
         $objSitio->id_stio = $this->getIdSitio($objSitio->nombre);

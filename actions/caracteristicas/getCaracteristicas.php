@@ -1,6 +1,6 @@
 <?php
-include_once '../../Data/DataCaracteristica.php';
-$caracteristicasData = new DataCaracteristica();
+include_once '../../Data/CaracteristicasData.php';
+$caracteristicasData = new CaracteristicasData();
 $caracteristicas= $caracteristicasData->getCaracteristicas();
 ?>
 <label>Características: </label> 
