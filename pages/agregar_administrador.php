@@ -5,24 +5,21 @@ mysql_connect("163.178.173.144:3306", "multimedios", "multimedios") or die("No f
 mysql_select_db("multimedios_dds") or die("No fue posible selecionar la base de datos");
 
 
-if($_POST["modificar"])
+if($_POST["insertar"])
 
 	{
-		//$id=$admin->id;
-		$password = $_POST['userEmail10'];  
-		$id= $_POST['userName11']; 
-		$nombre=$_POST['userName']; 
-		$apellidos=$_POST['userapellidos']; 
-		$correo=$_POST['usercorreo']; 
-		
+		$nombre = $_POST['userName'];
+		$apellidos = $_POST['userapellido'];
+		$correo = $_POST['usercorreo'];
+		$usuario= $_POST['user'];  
+		$contraseña= $_POST['usercontra'];  
 
-
-$query = "UPDATE admin set password= '$password',nombre='$nombre',apellidos='$apellidos',correo='$correo' where id ='$id'";
+$query = "insert into admin values(null,'$usuario','$contraseña','$correo','$nombre','$apellidos','0')";
 
 mysql_query($query);
 
 mysql_close();
-//echo  "<script>alert('Administrador Actualizado Exitosamente!!')</script>";
+//echo  "<script>alert('Administrador Ingresado Exitosamente!!')</script>";
 
 	}
  ?>
@@ -33,7 +30,6 @@ mysql_close();
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
-    <link rel="shortcut icon" href="../images/icono.png"/> 
     <script src="../js/jquery.min.js"></script> 
 </head>
 <body>
@@ -43,34 +39,34 @@ mysql_close();
         <div class="content">
             <div class="wrap">
                 <div class="contact-form">
-                    <h2>Informacíon de Administrador</h2>
+                    <h2>Nuevo de Administrador</h2>
                     <form method="post" class="left_form">
                         <div>
                             <span><label>Nombre:</label></span>
-                            <span><input name="userName" value="<?php echo $admin->nombre ?>" type="text" class="textbox"></span>
+                            <span><input name="userName"  type="text" class="textbox"></span>
                         </div>
                         <div>
                             <span><label>Apellidos:</label></span>
-                            <span><input name="userapellidos" value="<?php echo $admin->apellidos ?>" type="text" class="textbox"></span>
+                            <span><input name="userapellido"  type="text" class="textbox"></span>
                         </div>
                         <div>
                             <span><label>Email:</label></span>
-                            <span><input name="usercorreo" type="text" value="<?php echo $admin->correo ?>" class="textbox"></span>
+                            <span><input name="usercorreo" type="text"  class="textbox"></span>
                         </div>
                         <div>
-                            <span><label>Nueva Contraseña:</label></span>
-                            <span><input name="userEmail10" type="password" class="textbox"></span>
+                            <span><label>Usuario:</label></span>
+                            <span><input name="user" type="password" class="textbox"></span>
                         </div>
                         <div>
-                            <span><label>Vuelva a digitar la Contraseña:</label></span>
-                            <span><input name="userEmail10" type="password" class="textbox" ></span>
+                            <span><label>Contraseña:</label></span>
+                            <span><input name="usercontra" type="password" class="textbox" ></span>
                         </div>
                         <div >
-                            <span ><input type="submit" value="Actualizar Información" class="myButton" name="modificar"  ></span>
+                            <span ><input type="submit" value="Agregar Administrador" class="myButton" name="insertar"  ></span>
                         </div>
                         <div>
                          
-                            <span><input  name="userName11" type="text" class="textbox" value="<?php echo $admin->id ?>" readonly hidden></span>
+                           
                         </div>
 
                     </form>

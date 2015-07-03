@@ -1,21 +1,47 @@
-<?php include("../pages/user_session.php"); ?>
+<?php include("../pages/user_session.php"); 
+
+?>
 <!DOCTYPE HTML>
 <head>
     <title>Los más visitados</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="shortcut icon" href="../images/icono.png"/> 
     <script src="../js/jquery.min.js"></script> 
 
     <!-- Para el template 2!-->
     <link href="../segundoTemplate/css/style2.css" rel="stylesheet" type="text/css" media="all" />
-    
+   
+    <script type="text/javascript">
+    	$(document).ready(function(){
+			cargar(1);			
+		});
+		 
+		// la funcion esta fuera del scope de jQuery, es creado el objeto en tu 'document'
+		function cargar(pagina) {
+		   $.ajax({
+						url:   '../actions/busqueda_visitados.php?p='+pagina,
+						type:  'get',
+						success: function (data) {
+							$('#lista').html(data);
+						  },
+						error: function(jqXHR, textStatus, error) {
+							alert( "error: " + jqXHR.responseText);
+						  },
+						beforeSend: function () {
+								$("#lista").html("<img src='../images/loading.gif' alt='' />");
+						  }
+						});
+		}
+	</script>
 </head>
 <body>
     <?php include("user_header.php"); 
 	include_once(".././Data/DataSitio.php");
 	$da = new DataSitio();
 	$da->sitio_recomendados();
+	
 	?>
 
     <div class="content">	 
@@ -31,23 +57,15 @@
     <div class="main">
         <div class="content">
             <div class="wrap">
+            
                
                 
 
                 <div class="spa_products">
                 </br>
                     <h2>Los mas visitados</h2>
-                    <div class="section group">                        
-                           <?php foreach($_SESSION['sitios_recomendado'] as $k => $cur)
-							{?>
-                            	<div class="products_1_of_3">
-                                    <h3><?php echo $cur->nombre; ?></h3>
-                                    <img src="<? echo $cur->url_imagen ?>" alt="" />
-                                    <p align="justify"><?php echo $cur->descripcion1; ?></p>
-                                    <div class="read_more"><a href="vista_sitio.php?id=<?php echo $cur->id_stio ?>">Ver</a></div>
-                        		</div>
-                            <?php }?>                        
-                    </div>
+                    <div class="section group" id="lista">                        
+                        
                 </div>
             </div>
             <!----->            

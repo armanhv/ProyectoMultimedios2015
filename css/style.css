@@ -506,6 +506,7 @@ body {
 } 
 .products_1_of_3{
 	width: 45%;
+	height: 200px;
 	padding: 1.5%;
 	display: block;
 	float: left;
@@ -516,7 +517,7 @@ body {
 }
 .products_1_of_3  img {
 	float:right;
-	max-width:50%;
+	max-width:45%;
 	display:block;
 	padding: 3px;
 	background: #FFF;
@@ -1155,6 +1156,9 @@ input[type="submit"]:active{
 
 /**** Responsive Layout ****/
 @media only screen and (max-width: 1024px) {
+	.products_1_of_3{
+		height: 250px;
+	}
 	.wrap {
 		width: 90%;
 	}
