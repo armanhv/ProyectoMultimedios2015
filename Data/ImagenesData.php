@@ -66,7 +66,7 @@ class ImagenesData {
         $db = new Conexion();
         $query = "select * from  imagenes where id_sitio=".$idSitio." ";
         $result = mysqli_query($db, $query);
-        $arrayImagenes = [];
+        $arrayImagenes = array();
 
         while ($row = mysqli_fetch_array($result)) {
             $imagenes = new Imagenes($row['idimagenes'], $row['url_imagen'], $row['principal']);

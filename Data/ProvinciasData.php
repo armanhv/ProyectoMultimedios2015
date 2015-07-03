@@ -64,7 +64,7 @@ class ProvinciasData {
         $db = new Conexion();
         $query = "select * from  provincias";
         $result = mysqli_query( $db , $query);
-        $arrayProvincias = [];
+        $arrayProvincias = array();
 
         while ($row = mysqli_fetch_array($result)) {
             $provincia = new Provincias($row['idprovincias'], $row['nombre_provincia']);

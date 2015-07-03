@@ -76,7 +76,7 @@ class EstereotipoData {
         $db = new Conexion();
         $query = "select * from  estereotipo";
         $result = mysqli_query($db, $query);
-        $arrayEstereotipo = [];
+        $arrayEstereotipo = array();
 
         while ($row = mysqli_fetch_array($result)) {
             $caracteristica = new Estereotipo($row['idestereotipo'], $row['nombre_estereotipo']);

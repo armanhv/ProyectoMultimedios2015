@@ -21,8 +21,11 @@
 						  },
 						  error: function(jqXHR, textStatus, error) {
 							alert( "error: " + jqXHR.responseText);
+						  },
+						beforeSend: function () {
+								$("#lista").html("<img src='../images/loading.gif' alt='' />");
 						  }
-						});				
+						});			
 		}
 	</script>
 </head>

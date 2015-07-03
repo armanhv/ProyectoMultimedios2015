@@ -2,7 +2,7 @@
 
 class Admin{
 	
-	private $id;
+	public $id;
 	public $nombre;
 	public $apellidos;
 	public $nombre_usuario;

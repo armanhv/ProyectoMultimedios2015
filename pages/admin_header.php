@@ -26,8 +26,7 @@ $admin = unserialize($_SESSION['admin']);
                             <li><a href="eliminar_administrador.php">Eliminar adminsitrador</a></li>
 						<?php }?>
                         <li><a href="agregar_actividades_atractivos.php">Agregar Actividades y Atractivos</a></li>
-                        <li><a href="mantenimientoSitios.php">Mantenimiento Actividades y Atractivos</a></li>
-                       
+                        <li><a href="mantenimientoSitios.php">Mantenimiento Actividades y Atractivos</a></li>                       
                     </ul>
                 </div>
                

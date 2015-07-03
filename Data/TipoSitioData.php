@@ -65,7 +65,7 @@ class TipoSitioData {
         $db = new Conexion();
         $query = "select * from  tipo_sitio";
         $result = mysqli_query($db, $query);
-        $arrayTipoSitio = [];
+        $arrayTipoSitio = array();
 
         while ($row = mysqli_fetch_array($result)) {
             $sitio = new TipoSitio($row['idtipo'], $row['nombre_tipo']);
