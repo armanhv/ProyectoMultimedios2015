@@ -28,6 +28,23 @@ class DataSitio {
             return $objSitio;
         }
     }
+    
+     public function actualizarSitio($objSitio) {
+        $db = new Conexion();
+        $query = "update sitio  set nombre='" . $objSitio->nombre . "', precio=" . $objSitio->precio . ", visitas=" . $objSitio->visitas . ",visitas_estereotipo="
+                . $objSitio->visitas_estereotipo . ",telefono='" . $objSitio->telefono . "',direccion='" . $objSitio->direccion . "',correo='"
+                . $objSitio->correo . "',descripcion1='" . $objSitio->descripcion1 . "',descripcion2='" . $objSitio->descripcion2 .
+                "',url_video='" . $objSitio->url_video . "',tipo_sitio=" . $objSitio->tipo_sitio . ",apto_para=" . $objSitio->apto_para . ",provincia=" . $objSitio->provincia . "  where idsitio=". $objSitio->id_stio.";";
+        
+        $result = mysqli_query($db, $query);
+        $objSitio->id_stio = $this->getIdSitio($objSitio->nombre);
+        mysqli_close($db);
+        if ($result) {
+            return $objSitio;
+        } else {
+            return $objSitio;
+        }
+    }
 
     public function getIdSitio($nombreSitio) {
         $db = new Conexion();
@@ -40,6 +57,36 @@ class DataSitio {
             return $result['idsitio'];
         } else {
             return 0;
+        }
+    }
+    
+    public function getSitioPorId($idSitio){
+        $db = new Conexion();
+        $query = "select * from sitio where idsitio='" . $idSitio . "'";
+        $result = mysqli_query($db, $query);
+        $resultados = mysqli_fetch_array($result);
+        mysqli_close($db);
+
+        if ($resultados) {
+            return new Sitio($resultados['idsitio'], $resultados['nombre'], $resultados['precio'], $resultados['visitas'], $resultados['visitas_estereotipo'], 
+                    $resultados['telefono'], $resultados['direccion'], $resultados['correo'], $resultados['descripcion1'], $resultados['descripcion2'], 
+                    $resultados['url_video'], $resultados['tipo_sitio'], $resultados['apto_para'], $resultados['provincia'], "");
+        } else {
+            return 0;
+        }
+    }
+    
+    public function deleteSitio($idSitio) {
+         $db = new Conexion();
+        $query = "delete from sitio where idsitio= " . $idSitio . ";";
+        
+        $result = mysqli_query($db, $query);
+        mysqli_close($db);
+
+        if ($result) {
+            return true;
+        } else {
+            return false;
         }
     }
 
