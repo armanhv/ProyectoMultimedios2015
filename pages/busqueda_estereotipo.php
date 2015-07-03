@@ -74,14 +74,15 @@ include_once(".././Data/DataSitio.php");
                 <div class="content">
                     <div class="services">                       
                         <div class="section group">
+                       
                         	<form method="post" action="../Data/DataSitio.php?func=estereotipo" id="form">
                             <input type="hidden" name="func" value="estereotipo"/>
-                            <div class="col_1_of_4 span_1_of_4">                                    
-                                <div class="services_list">
-                                    <p><input type="checkbox" name="SanJose" value="San Jose"> San José<br>
+                            <div class="col_1_of_4 span_1_of_4">
+                              <div class="services_list">
+                                  <p><input type="checkbox" name="SanJose" value="San Jose"> San José<br>
                                     <input type="checkbox" name="Cartago" value="Cartago"> Cartago<br>
-                                    <input type="checkbox" name="Heredia" value="Heredia"> Heredia<br></p>
-                                </div>
+                                <input type="checkbox" name="Heredia" value="Heredia"> Heredia<br></p>
+                              </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4">                                   
                                 <div class="services_list">
@@ -104,35 +105,23 @@ include_once(".././Data/DataSitio.php");
 										{ echo 'checked="checked"';} ?>/>Tranquilo<br>
                                     <input type="radio" name="estereotipo" value="extremo" 
                                     <?php if ( (strcmp($_SESSION['estereotipo'], 'extremo')) == 0 )
-										{ echo 'checked="checked"';} ?>/>Extremo<br></p>
+										{ echo 'checked="checked"';} ?>/>Extremo                                </p>
                                 </div>
                             </div>
                             <div class="col_1_of_4 span_1_of_4" style="float:right">                                   
-                                <div class="services_list">
+                              <div class="services_list" >
                                 	<input type="submit" value="Buscar" href="javascript:;" onclick="recargarSitios();return false;"/>
                                 </div>
                             </div>
-                            </form>
+                          </form>
                         </div>                                
                     </div>
                 </div>
-                <div class="spa_products">
+                <div class="spa_products" style="padding:0;">
                     <h2>Busqueda por Estereotipo</h2>
                     <div class="section group" id="lista">                        
                             
-                         <!--  <?php foreach($_SESSION['sitios_estereotipo'] as $k => $cur)
-							{?>
-                            	<div class="products_1_of_3">
-                                    <h3><?php echo $cur->nombre; ?></h3>
-                                    <img src="<? echo $cur->url_imagen ?>" alt="" />
-                                    <p><?php echo $cur->descripcion1; ?></p>
-                                    <p>Provincia:  <?php echo $cur->provincia; ?></p>
-                                    <div class="read_more"><a href="vista_sitio.php?id=<?php echo $cur->id_stio ?>">Ver</a></div>
-                        		</div>
-                            <?php }?>
-
                         
-                    </div>-->
                 </div>
             </div>
             <!----->            
