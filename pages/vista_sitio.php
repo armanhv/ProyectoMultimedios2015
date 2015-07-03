@@ -149,10 +149,7 @@ $idSitio = $_GET['id'];
                             <img src="<? echo $cur->url_imagen ?>" alt="" />
                         </div>
                     <?php } ?> 
-                    <div class="products_1_of_3">
-                        <? echo $sitio->url_imagen; ?>
-                        <img src="<? echo $sitio->url_imagen ?>" alt="" />                           
-                    </div>
+                  
                 </div>
 
             </div>

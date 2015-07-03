@@ -1,5 +1,5 @@
 <?php 
-session_start();
+//session_start();
 include ('../Domain/Admin.php');
 $admin = unserialize($_SESSION['admin']);
 ?>
