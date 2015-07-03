@@ -69,5 +69,6 @@ class CaracteristicasData {
         mysqli_close($db);
         return $arrayCaracteristicas;
     }
+    
 
 }

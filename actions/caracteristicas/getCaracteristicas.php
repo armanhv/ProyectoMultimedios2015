@@ -11,8 +11,8 @@ $caracteristicas= $caracteristicasData->getCaracteristicas();
         <?php }
     ?>
 </select>
- <button  type="submit" onclick="agregarCaracteristicas()" >Agregar</button>  
+ <button  type="submit" onclick="addCaracteristicas()" >Agregar</button>  
  <select name="cbxCaracteristicasAgregadas" id="cbxCaracteristicasAgregadas" multiple="multiple" >
    
 </select>
- <button  type="submit" onclick="removerValores()" >Remover</button>  
+ <button  type="submit" onclick="removeCaracteristicas()" >Remover</button>  

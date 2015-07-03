@@ -1,23 +1,21 @@
 <?php
 
-include ('conexion.php');
-include ('../Domain/Imagenes.php');
+include_once ('conexion.php');
+include_once  './../Domain/Imagenes.php';
 
 class ImagenesData {
-
-    private $conexion;
 
     public function ImagenesData() {
         
     }
 
     public function insertImagen($idSitio, $imagenes) {
-        $this->conexion = new conexion();
+         $db = new Conexion();
         $query = "insert into imagenes (id_sitio,url_imagen,principal) values (" . $idSitio
                 . ", '" . $imagenes->getUrl() . "', " . $imagenes->getPrincipal() . ");";
         
-        $result = mysqli_query($this->conexion, $query);
-        mysqli_close($this->conexion);
+        $result = mysqli_query($db, $query);
+        mysqli_close($db);
         if ($result) {
             return true;
         } else {
@@ -25,13 +23,14 @@ class ImagenesData {
         }
     }
 
-    public function updateImagen($imagenes) {
+    public function updateImagen($idSitio,$imagenes) {
 
-        $this->conexion = new conexion();
+        $db = new Conexion();
         $query = "update imagenes set  url_imagen='" . $imagenes->getUrl() . "', principal=  " . $imagenes->getPrincipal() .
                 " where idimagenes= " . $imagenes->getId();
-        $result = mysqli_query($this->conexion, $query);
-        mysqli_close($this->conexion);
+        $result = mysqli_query($db, $query);
+      
+        mysqli_close($db);
         if ($result) {
             return true;
         } else {
@@ -40,10 +39,11 @@ class ImagenesData {
     }
 
     public function deleteImagen($idImagen) {
-        $this->conexion = new conexion();
+         $db = new Conexion();
         $query = "delete from imagenes where idimagenes= " . $idImagen . ";";
-        $result = mysqli_query($this->conexion, $query);
-        mysqli_close($this->conexion);
+        echo $query;
+        $result = mysqli_query($db, $query);
+        mysqli_close($db);
 
         if ($result) {
             return true;
@@ -53,21 +53,19 @@ class ImagenesData {
     }
 
     public function getImagen($idImagen) {
-        $this->conexion = new conexion();
+         $db = new Conexion();
         $query = "select * from  imagenes where idimagenes= " . $idImagen . "";
-        $resulGeneral = mysqli_query($this->conexion, $query);
+        $resulGeneral = mysqli_query($db);
         $row = $resulGeneral->fetch_array();
         $imagenes = new Imagenes($row['idimagenes'], $row['url_imagen'], $row['principal']);
-        mysqli_close($this->conexion);
+        mysqli_close($db);
         return $imagenes;
     }
 
-    public function getImagenesSitio($idSitio) {
-
-
-        $this->conexion = new conexion();
+    public function getImagenesSitio($idSitio) { 
+        $db = new Conexion();
         $query = "select * from  imagenes where id_sitio=".$idSitio." ";
-        $result = mysqli_query($this->conexion, $query);
+        $result = mysqli_query($db, $query);
         $arrayImagenes = [];
 
         while ($row = mysqli_fetch_array($result)) {
@@ -75,7 +73,7 @@ class ImagenesData {
             array_push($arrayImagenes, $imagenes);
         }
 
-        mysqli_close($this->conexion);
+        mysqli_close($db);
         return $arrayImagenes;
     }
 

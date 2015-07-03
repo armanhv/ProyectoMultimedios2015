@@ -10,6 +10,7 @@ class Coordenadas{
 		$this->latitud = $latitud;
 		$this->longuitud = $longuitud;
 	}
+        
 }
 
 

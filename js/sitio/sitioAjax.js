@@ -1,8 +1,7 @@
 /* Metodos para el mantenimiento de un sitio o Atractivo Turistico */
 
 function insertarSitioAtractivo() {
-
-
+  
     var parametros = {
         "nombre": $('#txtNombreSitio').val(),
         "precio": $('#txtPrecio').val(),
@@ -12,22 +11,65 @@ function insertarSitioAtractivo() {
         "descripcionCorta": $('#txtDescripcionCorta').val(),
         "descripcionLarga": $('#txtDescripcionLarga').val(),
         "urlVideo": $('#txtUrlVideo').val(),
-        "tipoSitio": $('#cbxTipoSitio').val(),
-        "estereotipo": $('#cbxEstereotipo').val(),
-        "provincia": $('#cbxProvincias').val()
+        "tipoSitio": $("#cbxTipoSitio option:selected").val(),
+        "estereotipo": $("#cbxEstereotipo option:selected").val(),
+        "provincia": $("#cbxProvincias option:selected").val(),
+        "latitud": $("#txtLatitud").val(),
+        "longitud": $("#txtLongitud").val(),
+        "ImagenP": $("#urlImagenP").val(),
+        "ImagenS1": $("#urlImagen1").val(),
+        "ImagenS2": $("#urlImagen2").val(),
+        "ImagenS3": $("#urlImagen3").val()
+        
 
     };
 
     if (confirm("¿ Desea ingresar este sitio ?")) {
         $.ajax({
             data: parametros,
-            url: '../../actions/sitio/agregarSitioAction.php',
+            url: './../actions/agregarSitioAction.php',
             type: 'post',
-            success: function (response) {               
+            success: function (response) {
+                if(response!='Error al ingresar el sitio'){
+                   // $("#btnAgregarSitio").hide();
+                   getCaracteristicas();
+                }
                 $("#resultado").html(response);
             }
         });
     }
+}
+
+
+
+function eliminarSitioAtractivo() {
+  
+    
+    if (confirm("¿ Desea eliminar este sitio ?")) {
+        $.ajax({
+            data: parametros,
+            url: './../actions/caracteristicas/eliminarSitio.php',
+            type: 'post',
+            success: function (response) {
+               $("#resultado").html(response);
+            }
+        });
+    }
+}
+
+function obtenerInformacionAdicional(){
+    var parametros = {
+        "idSitio": $('#txtIdSitio').val()
+    };
+     $.ajax({
+            data: parametros,
+            url: './../actions/agregarInfomacionAdicionalSitio.php',
+            type: 'post',
+            success: function (response) { 
+               
+                $("#informacionAdicional").html(response);
+            }
+        });
 }
 
 

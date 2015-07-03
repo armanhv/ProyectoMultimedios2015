@@ -33,10 +33,20 @@ class DataImagen{
 			echo ',';
 		}*/
 	}
+        
+        public function obtenerImages($id){
+		$db = new Conexion();
+		$result = $db->query("call sp_get_images('$id');");
+		$arrayImage = array();
+		
+		while ($fila = mysqli_fetch_array($result)){
+			array_push($arrayImage, $this->result_to_imagen($fila));;
+		}		
+		mysqli_free_result($result);
+		mysqli_close($db);		
+		return $arrayImage;
+	}
 	
 }
-/*
-$da = new DataImagen();
-$da->get_images(1);*/
 
 ?>
