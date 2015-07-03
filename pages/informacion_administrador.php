@@ -70,7 +70,7 @@ mysql_close();
                         </div>
                         <div>
                          
-                            <span><input type="hidden" name="userName11" type="text" class="textbox" value="<?php echo $admin->id ?>" readonly hidden></span>
+                            <span><input  name="userName11" type="text" class="textbox" value="<?php echo $admin->id ?>" readonly hidden></span>
                         </div>
 
                     </form>
