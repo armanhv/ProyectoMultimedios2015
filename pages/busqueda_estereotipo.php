@@ -10,10 +10,32 @@ include_once(".././Data/DataSitio.php");
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="shortcut icon" href="../images/icono.png"/> 
     <script src="../js/jquery.min.js"></script> 
     
     <link href="../segundoTemplate/css/style2.css" rel="stylesheet" type="text/css" media="all" />
-    <script>
+        <script type="text/javascript">
+    	$(document).ready(function(){
+			cargar(1);			
+		});
+		 
+		// la funcion esta fuera del scope de jQuery, es creado el objeto en tu 'document'
+		function cargar(pagina) {
+		   $.ajax({
+						url:   '../actions/busqueda_estereotipo.php?p='+pagina,
+						type:  'get',
+						success: function (data) {
+							$('#lista').html(data);
+						  },
+						error: function(jqXHR, textStatus, error) {
+							alert( "error: " + jqXHR.responseText);
+						  },
+						beforeSend: function () {
+								$("#lista").html("<img src='../images/loading.gif' alt='' />");
+						  }
+						});
+		}
+
 		function recargarSitios(){
 				$.ajax({
 						data:  /*{"func" : "estereotipo"},*/ $("#form").serialize(),
@@ -24,19 +46,11 @@ include_once(".././Data/DataSitio.php");
 						  },
 						  error: function(jqXHR, textStatus, error) {
 							alert( "error: " + jqXHR.responseText);
-						  }
-						});/*
+						  },
 						beforeSend: function () {
-								$("#lista").html("Procesando, espere por favor...");
-						},
-						error: function(){
-								$("#lista").html("Error");
-						},
-						success:  function (response) {
-								$("#lista").html(response);
-						}
-				});*/
-				
+								$("#lista").html("<img src='../images/loading.gif' alt='' />");
+						  }
+						});				
 		}
 	</script>
 </head>
@@ -106,7 +120,7 @@ include_once(".././Data/DataSitio.php");
                     <h2>Busqueda por Estereotipo</h2>
                     <div class="section group" id="lista">                        
                             
-                           <?php foreach($_SESSION['sitios_estereotipo'] as $k => $cur)
+                         <!--  <?php foreach($_SESSION['sitios_estereotipo'] as $k => $cur)
 							{?>
                             	<div class="products_1_of_3">
                                     <h3><?php echo $cur->nombre; ?></h3>
@@ -118,7 +132,7 @@ include_once(".././Data/DataSitio.php");
                             <?php }?>
 
                         
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <!----->            

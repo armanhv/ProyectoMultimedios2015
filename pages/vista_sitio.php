@@ -27,6 +27,7 @@ $idSitio = $_GET['id'];
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="../css/sticky_menu.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="../images/icono.png"/> 
 
     <!-- Para el template 2!-->
     <link href="../segundoTemplate/css/style2.css" rel="stylesheet" type="text/css" media="all" />
