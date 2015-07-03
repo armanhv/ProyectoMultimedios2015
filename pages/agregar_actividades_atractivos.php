@@ -82,6 +82,7 @@
                             <div>
                                 <span>
                                     <label>Coordenadas:</label>
+                                    <a href="http://www.agenciacreativa.net/coordenadas_google_maps.php" target="_blank">Obtener Coordenadas</a>
                                     <table>
                                         <tr>
                                             <td>Latitud</td>

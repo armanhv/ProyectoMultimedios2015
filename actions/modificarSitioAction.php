@@ -49,7 +49,7 @@ if ($result->id_stio != 0) {
     $imagenesData->updateImagen($result->id_stio, new Imagenes($idImg3, $ImagenS3, 0));
 
     echo '<input id="txtIdSitio" type="hidden" value="' . $result->id_stio . '" >'
-    . 'Sitio ingresado correctamente';
+    . 'Sitio modificado correctamente';
 } else {
     echo 'Error al modificar el sitio';
 }
