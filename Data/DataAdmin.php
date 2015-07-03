@@ -21,7 +21,7 @@ class DataAdmin{
 		
 			if(count($datos) != 0){
 				session_start();
-				$_SESSION['admin'] = $admin;
+				$_SESSION['admin'] = serialize($admin);
 			}
 			$sql->close();
 		} catch (Exception $e) {

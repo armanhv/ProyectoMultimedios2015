@@ -83,8 +83,7 @@ include_once(".././Data/DataSitio.php");
                             </div>
                             <div class="col_1_of_4 span_1_of_4"> 
                                 <div class="services_list">
-                                <p>
-                                <h3>Estereotipo:</h3><br/>
+                                  <h3>Estereotipo:</h3>
                                 <p>
                                     <input type="radio" name="estereotipo" value="tranquilo" 
                                     	<?php if ( (strcmp($_SESSION['estereotipo'], 'tranquilo')) == 0 )
@@ -94,7 +93,7 @@ include_once(".././Data/DataSitio.php");
 										{ echo 'checked="checked"';} ?>/>Extremo<br></p>
                                 </div>
                             </div>
-                            <div class="col_1_of_4 span_1_of_4">                                   
+                            <div class="col_1_of_4 span_1_of_4" style="float:right">                                   
                                 <div class="services_list">
                                 	<input type="submit" value="Buscar" href="javascript:;" onclick="recargarSitios();return false;"/>
                                 </div>

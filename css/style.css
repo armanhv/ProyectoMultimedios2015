@@ -59,6 +59,10 @@ body {
 .wrap {
 	width:80%;
 	margin: 0 auto;
+	height:80%;
+	margin: 0 auto;
+	border: 0 auto;
+	padding:0 auto;
 	transition:all .2s linear;
 	-moz-transition:all .2s linear;/* firefox */
 	-webkit-transition:all .2s linear; /* safari and chrome */
@@ -327,7 +331,7 @@ body {
 }
 /***** Content *****/
 .content {
-	padding:50px 0;
+	padding:0px 0;
 }
 .content h2 {
 	color:#9E9E9E;
@@ -884,6 +888,14 @@ body {
 	margin: 1% 0 1% 1.6%;
 	border-style:dotted;
 }
+
+.col_1_of_4{
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+	border-style:dotted;
+}
+
 .col_1_of_4:first-child { margin-left: 0; } /* all browsers except IE6 and lower */	
 .span_1_of_4 {
 	width: 18%;

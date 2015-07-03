@@ -18,7 +18,7 @@
                     <form method="post" class="left_form">
                         <div>
                             <span><label>Nombre:</label></span>
-                            <span><input name="userName" value="Roberto" type="text" class="textbox"></span>
+                            <span><input name="userName" value="<?php echo $admin->nombre ?>" type="text" class="textbox"></span>
                         </div>
                         <div>
                             <span><label>Apellidos:</label></span>
@@ -26,15 +26,15 @@
                         </div>
                         <div>
                             <span><label>Email:</label></span>
-                            <span><input name="userName" type="text" value="robertolopez@gmail.com" class="textbox"></span>
+                            <span><input name="userName" type="text" value="<?php echo $admin->correo ?>" class="textbox"></span>
                         </div>
                         <div>
                             <span><label>Nueva Contraseña:</label></span>
-                            <span><input name="userEmail" type="text" class="textbox"></span>
+                            <span><input name="userEmail" type="password" class="textbox"></span>
                         </div>
                         <div>
                             <span><label>Vuelva a digitar la Contraseña:</label></span>
-                            <span><input name="userEmail" type="text" class="textbox"></span>
+                            <span><input name="userEmail" type="password" class="textbox"></span>
                         </div>
                         <div >
                             <span ><input type="submit" value="Actualizar Información" class="myButton"  ></span>
