@@ -172,6 +172,8 @@ if (isset($_POST['func'])) {
                 }
             }
         }
+		
+		$_SESSION['sitios_estereotipo'] = $array_estereotipo ;
 
         if (count($array_estereotipo) == 0) {
             echo "No existen registros con esos criterios";
@@ -187,39 +189,6 @@ if (isset($_POST['func'])) {
                 </div>
             <?php
             }
-        }
-    }
-
-    if (strcmp($_POST['func'], "avscanzada") == 0) {
-        session_start();
-        $da = new DataSitio();
-        $da->load_sitios();
-        echo count($_SESSION['sitios']);
-        $arrayAvanzada = array();
-        $puntos = array();
-        //$dc = new DataCaracteristica;
-        //arreglo el arreglo de la palabra
-        if (!isset($_POST['palabrasForm']) || strcmp($_POST['palabrasForm'], "") != 0) {
-            echo count($_SESSION['sitios']);
-            $a = $_POST['palabrasForm'];
-            echo count($_SESSION['sitios']);
-            $palabras = preg_split("/[\s,]+/", $a);
-            echo count($_SESSION['sitios']);
-
-            //paso las palabras de la búsqueda a array
-            foreach ($palabras as &$valor) {//quito palabras innecesarias
-                if (($key = array_search("de", $palabras)) !== false || ($key = array_search("por", $palabras)) !== false ||
-                        ($key = array_search("para", $palabras)) !== false || ($key = array_search("con", $palabras)) !== false ||
-                        ($key = array_search("la", $palabras)) !== false || ($key = array_search("el", $palabras)) !== false ||
-                        ($key = array_search("los", $palabras)) !== false || ($key = array_search("las", $palabras)) !== false ||
-                        ($key = array_search("se", $palabras)) !== false) {
-                    unset($palabras[$key]);
-                }
-            }//fin arreglo*/
-            print_r($palabras);
-            echo count($_SESSION['sitios']);
-        } else {
-            echo "asdcxzcsd";
         }
     }
 }
