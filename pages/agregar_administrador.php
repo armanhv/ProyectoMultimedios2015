@@ -5,7 +5,7 @@ mysql_connect("163.178.173.144:3306", "multimedios", "multimedios") or die("No f
 mysql_select_db("multimedios_dds") or die("No fue posible selecionar la base de datos");
 
 
-if($_POST["insertar"])
+if(isset($_POST["insertar"]))
 
 	{
 		$nombre = $_POST['userName'];
@@ -26,10 +26,11 @@ mysql_close();
  
 <!DOCTYPE HTML>
 <head>
-    <title>Información Administrador</title>
+    <title>Agregar Administrador</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="shortcut icon" href="../images/icono.png"/> 
     <script src="../js/jquery.min.js"></script> 
 </head>
 <body>

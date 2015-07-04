@@ -2,7 +2,7 @@
 <?php
 include_once(".././Data/DataSitio.php");
 $da = new DataSitio();
-$da->sitio_estereotipo();
+$da->load_sitios();
 ?>
 
 <!DOCTYPE HTML>
@@ -11,6 +11,7 @@ $da->sitio_estereotipo();
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="shortcut icon" href="../images/icono.png"/> 
     <script src="../js/jquery.min.js"></script> 
 
     <link href="../segundoTemplate/css/style2.css" rel="stylesheet" type="text/css" media="all" />
@@ -31,7 +32,7 @@ $da->sitio_estereotipo();
     </script>
 </head>
 <body>
-    <?php include("user_header.php"); ?>
+    <?php include("admin_header.php"); ?>
 
 
 
@@ -42,7 +43,7 @@ $da->sitio_estereotipo();
                     <h2>Mantenimiento Sitios</h2>
                     <div class="section group" id="lista">                        
 
-                        <?php foreach ($_SESSION['sitios_estereotipo'] as $k => $cur) {
+                        <?php foreach ($_SESSION['sitios'] as $k => $cur) {
                             ?>
                             <div class="products_1_of_3">
                                 <h3><?php echo $cur->nombre; ?></h3>

@@ -3,7 +3,7 @@
 
 
 
-if($_POST["modificar"])
+if(isset($_POST["modificar"]))
 	{
 		
 	mysql_connect("163.178.173.144:3306", "multimedios", "multimedios") or die("No fue posible conectar con el servidor");
@@ -30,6 +30,7 @@ if($_POST["modificar"])
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="shortcut icon" href="../images/icono.png"/> 
     <script src="../js/jquery.min.js"></script> 
 </head>
 <body>

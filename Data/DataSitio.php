@@ -31,8 +31,7 @@ class DataSitio {
     
      public function actualizarSitio($objSitio) {
         $db = new Conexion();
-        $query = "update sitio  set nombre='" . $objSitio->nombre . "', precio=" . $objSitio->precio . ", visitas=" . $objSitio->visitas . ",visitas_estereotipo="
-                . $objSitio->visitas_estereotipo . ",telefono='" . $objSitio->telefono . "',direccion='" . $objSitio->direccion . "',correo='"
+        $query = "update sitio  set nombre='" . $objSitio->nombre . "', precio=" . $objSitio->precio . ",telefono='" . $objSitio->telefono . "',direccion='" . $objSitio->direccion . "',correo='"
                 . $objSitio->correo . "',descripcion1='" . $objSitio->descripcion1 . "',descripcion2='" . $objSitio->descripcion2 .
                 "',url_video='" . $objSitio->url_video . "',tipo_sitio=" . $objSitio->tipo_sitio . ",apto_para=" . $objSitio->apto_para . ",provincia=" . $objSitio->provincia . "  where idsitio=". $objSitio->id_stio.";";
         
